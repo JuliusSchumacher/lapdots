@@ -95,11 +95,16 @@ Processor() {
 
 }
 
+Wifi() {
+	echo "%{A:~/.bin/dmenu_nm.sh:}$f_green\ue1af$fg $(iwgetid -r)%{A}"
+}
+
 
 while true; do
 	buf="$bg"
 	buf="$buf%{l}"
 	buf="$buf$(Launcher)"
+	buf="$buf $(Wifi)"
 	buf="$buf $(Volume)"
 	buf="$buf $(Music)"
 	buf="$buf %{c}"
