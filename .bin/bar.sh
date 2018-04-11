@@ -54,10 +54,15 @@ Music() {
 
 
 	if [ "`playerctl status| grep 'Paused'`" ]
-		then
+	then
 			icon="%{A:playerctl play:}\ue09a%{A}"
 		fi
 		echo "$f_green\ue05c$fg %{A:playerctl previous:}\ue096%{A}$icon%{A:playerctl next:}\ue05a%{A} $(playerctl metadata artist) - $(playerctl metadata title)"
+	fi
+
+	if [ "`ncmpcpp --current | grep '('`" ]
+	then
+		echo "$f_green\ue05c$fg $(ncmpcpp --current %a) - $(ncmpcpp --current %t)"
 	fi
 }
 
@@ -70,7 +75,7 @@ Launcher() {
 Volume() {
 	vol=$(amixer get Master | sed -n 's/^.*\[\([0-9]\+\)%.*$/\1/p'| uniq)
 	perc="%"
-	echo "$f_green\ue05d$fg $vol$perc %{A:pactl set-sink-volume 0 +2%:}+%{A}/%{A:pactl set-sink-volume 0 -2%:}-%{A}"
+	echo "$f_green\ue05d$fg $vol$perc"
 }
 
 Memory() {
