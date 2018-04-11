@@ -1,0 +1,13 @@
+# volume
+"pactl set-sink-volume 0 +1000"
+   XF86AudioRaiseVolume
+
+"pactl set-sink-volume 0 -1000"
+   XF86AudioLowerVolume
+
+# brightness
+"lux -a 5%"
+   XF86MonBrightnessUp
+
+"lux -s 5%"
+   XF86MonBrightnessDown

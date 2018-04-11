@@ -1,0 +1,2 @@
+#! /bin/zsh
+qemu-system-x86_64 -m 4G -enable-kvm -vga std ~/documents/vm/kali.img

@@ -1,0 +1,8 @@
+#! /bin/zsh
+
+while true; do
+	clear
+	TORRENTS=$(transmission-remote -l)
+	echo -n "$TORRENTS"
+	sleep 1
+done
