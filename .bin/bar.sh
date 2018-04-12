@@ -116,5 +116,5 @@ while true; do
 	buf="$buf $(Date)"
 	buf="$buf $(Clock) %{O10}"
 	echo -e $buf
-	sleep 0.01
+	sleep 0.5
 done
