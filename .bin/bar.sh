@@ -1,16 +1,8 @@
-bg="%{B#FF1D1F21}"
-blue="%{B#81A2BE}"
-red="%{B#A54242}"
-
-
+bg="%{B#161616}"
 fg="%{F#FFFFFF}"
-f_magenta="%{F#b294bb}"
-f_green="%{F#8c9440}"
-f_lgreen="%{F#b5bd68}"
-f_red="%{F#A54242}"
-f_yellow="%{F#de935f}"
-f_blue="%{F#5f819d}"
-f_cyan="%{F#5e8d87}"
+red="%{B#E84F4F}"
+f_green="%{F#B7CE42}"
+f_red="%{F#E84F4F}"
 
 
 Clock() {
