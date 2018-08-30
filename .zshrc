@@ -115,10 +115,12 @@ bindkey -e
 # End of lines configured by zsh-newuser-install
 
 PROMPT=">>  "
-RPROMPT="%M:%~"
+RPROMPT="%n@%M:%~"
 
 export PATH=~/.bin:$PATH
-
+export EDITOR=vim
 
 alias ls='ls --color=auto'
 alias pika=pikaur
+
+alias gcal='gcalcli --calendar juliusschumacher@gmail.com'

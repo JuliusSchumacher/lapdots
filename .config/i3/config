@@ -171,16 +171,29 @@ bindsym $mod+shift+w exec ~/.bin/dmenu_nm.sh
 
 # Theme
 
+font -misc-tamsyn-medium-r-normal--14-101-100-100-c-70-iso8859-1
+
+
 hide_edge_borders both
 for_window [class="^.*"] border pixel 0
 gaps inner 15
 gaps outer 0
 
+# class                 border  backgr. text    indicator child_border
+client.focused          #e84f4f #e84f4f #ffffff #66aabb   #000000
+client.focused_inactive #666666 #666666 #dddddd #484e50   #5f676a
+client.unfocused        #222222 #161616 #dddddd #292d2e   #222222
+
 
 #Startup
 
 exec_always "setxkbmap se"
-exec_always "feh --bg-fill ~/.wallpaper"
+exec_always "feh --force-aliasing --bg-fill ~/.wallpaper"
 exec_always "xrdb ~/.Xresources"
 
+exec "dunst"
 exec "~/.bin/lemonbar.sh"
+
+# mail notifiers don't work!
+#exec "~/.bin/mailnotif ~/.mail/fetchmailrc-chalmers ~/.mail/unread-chalmers"
+#exec "~/.bin/mailnotif ~/.mail/fetchmailrc-gu ~/.mail/unread-gu"
