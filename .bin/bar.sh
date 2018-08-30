@@ -13,7 +13,7 @@ Clock() {
 
 Date() {
 	DATE=$(date "+%a %b %d")
-	echo "$f_green\ue225$fg $DATE"
+	echo "$f_green%{A:~/.bin/calnotif.sh:}\ue225$fg $DATE%{A}"
 }
 
 
@@ -25,8 +25,16 @@ Battery() {
 #		echo -e "WHADUHECKWHADUHECK"
 #	fi
 
+	PLUGGED=$(acpi -a | tail -c 8 | grep 'on-line')
 
-	echo "$f_green\ue040$fg $BATPERC"
+	if [ "$PLUGGED" ]
+	then
+		icon="\ue041"
+	else
+		icon="\ue040"
+	fi
+
+	echo "$f_green$icon$fg $BATPERC"
 }
 
 
@@ -91,6 +99,12 @@ Wifi() {
 	echo "%{A:~/.bin/dmenu_nm.sh:}$f_green\ue1af$fg $(iwgetid -r)%{A}"
 }
 
+Mail() {
+	gumail=$(cat ~/.mail/unread-gu)
+	chalmail=$(cat ~/.mail/unread-chalmers)
+	echo "$f_green\ue1a8$fg $chalmail/$gumail"
+}
+
 
 while true; do
 	buf="$bg"
@@ -99,6 +113,7 @@ while true; do
 	buf="$buf $(Wifi)"
 	buf="$buf $(Volume)"
 	buf="$buf $(Music)"
+#	buf="$buf $(Mail)"
 	buf="$buf %{c}"
 	buf="$buf $(Workspaces)"
 	buf="$buf %{r}"
