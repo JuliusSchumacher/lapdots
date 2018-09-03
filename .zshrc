@@ -124,3 +124,4 @@ alias ls='ls --color=auto'
 alias pika=pikaur
 
 alias gcal='gcalcli --calendar juliusschumacher@gmail.com'
+alias pdf='llpp'

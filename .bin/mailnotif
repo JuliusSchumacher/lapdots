@@ -1,0 +1,13 @@
+#! /bin/zsh
+
+# set env variable to enable running multiple instances
+export FETCHMAILHOME=$(mktemp -d)
+
+fetchmail -c -f $1 | while read line; do
+	total=`echo $line | cut -c 1`
+	new=`echo $line | sed 's/(//' | awk '{print $1-$3}'`
+	acc=`echo $line | sed 's/(//' | awk '{print $6}'`
+	echo $new > $2
+	notify-send "Mail" "$acc \n$new new messages! \n$total total"
+done
+
