@@ -179,16 +179,21 @@ for_window [class="^.*"] border pixel 0
 gaps inner 15
 gaps outer 0
 
+# custom colors imported from pywal
+set_from_resource $fg i3wm.foreground
+set_from_resource $bg i3wm.background
+set_from_resource $focus i3wm.color2
+
 # class                 border  backgr. text    indicator child_border
-client.focused          #e84f4f #e84f4f #ffffff #66aabb   #000000
-client.focused_inactive #666666 #666666 #dddddd #484e50   #5f676a
-client.unfocused        #222222 #161616 #dddddd #292d2e   #222222
+client.focused          $focus  $focus  $fg     $focus    $bg
+client.unfocused        $bg     $bg     $fg     $bg       $bg
 
 
 #Startup
 
 exec_always "setxkbmap se"
-exec_always "feh --force-aliasing --bg-fill ~/.wallpaper"
+# exec_always "feh --force-aliasing --bg-fill ~/.wallpaper"
+exec_always wal -R
 exec_always "xrdb ~/.Xresources"
 
 exec "dunst"
