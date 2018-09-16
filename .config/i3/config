@@ -186,7 +186,7 @@ set_from_resource $focus i3wm.color2
 
 # class                 border  backgr. text    indicator child_border
 client.focused          $focus  $focus  $fg     $focus    $bg
-client.unfocused        $bg     $bg     $fg     $bg       $bg
+client.unfocused        $focus  $bg     $fg     $bg       $bg
 
 
 #Startup
@@ -196,6 +196,7 @@ exec_always "setxkbmap se"
 exec_always wal -R
 exec_always "xrdb ~/.Xresources"
 
+exec "compton --config ~/.config/compton/compton.conf -b"
 exec "dunst"
 exec "~/.bin/lemonbar.sh"
 
