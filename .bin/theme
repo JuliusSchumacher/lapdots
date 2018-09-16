@@ -1,0 +1,18 @@
+#! /bin/zsh
+
+# generate theme from image
+wal -i $1 -g $2 $3 $4 $5
+
+# theme spotify
+oomoxify-cli ~/.cache/wal/colors-oomox
+
+# generate css for discord and apply it
+~/documents/gits/wal-discord/wal-discord
+beautifuldiscord --css ~/.cache/wal-discord/style.css
+
+# apply theme for steam
+wal_steam
+
+# restart lemonbar
+pkill lemonbar
+lemonbar.sh &>/dev/null &

@@ -1,0 +1,54 @@
+#!/bin/bash
+
+# i3-lock-color based screenlocker.
+# most of the stuff in here is shamelessly stolen from i3-lock-wrapper and betterlockscreen
+# I JUST WANT MY NICE BLURRED SCREENSHOT OK IT DOESN'T NEED TO BE FAST
+
+
+
+# create files for storing images
+file1=$(mktemp --tmpdir i3lock-wrapper-XXXXXXXXXX.png)
+file2=$(mktemp --tmpdir i3lock-wrapper-XXXXXXXXXX.png)
+file3=$(mktemp --tmpdir i3lock-wrapper-XXXXXXXXXX.png)
+
+
+#create box to be painted onto image
+rectangles=" "
+SR=$(xrandr --query | grep ' connected' | grep -o '[0-9][0-9]*x[0-9][0-9]*[^ ]*')
+for RES in $SR; do
+	SRA=(${RES//[x+]/ })
+	CX=$((${SRA[2]} + 25))
+	CY=$((${SRA[1]} - 30))
+	rectangles+="rectangle $CX,$CY $((CX+300)),$((CY-80)) "
+done
+
+#create screenshot, blur and apply rectangle
+scrot -z -d0 "$file1"
+# convert "$file1" -blur 0x3 "$file2"
+mogrify -scale 10% -scale 1000% "$file1"
+convert "$file1" -draw "fill rgba(0, 0, 0, 0.4) $rectangles" "$file3"
+rm "$file1" # Remove for security
+# rm "$file2"
+
+
+letterEnteredColor=d23c3dff
+letterRemovedColor=d23c3dff
+passwordCorrect=00000000
+passwordIncorrect=d23c3dff
+background=00000000
+foreground=ffffffff
+i3lock \
+	-t -i "$file3" \
+	--timepos="110:h-70" \
+	--datepos="135:h-45" \
+	--clock --datestr "Type password to unlock..." \
+	--insidecolor=$background --ringcolor=$foreground --line-uses-inside \
+	--keyhlcolor=$letterEnteredColor --bshlcolor=$letterRemovedColor --separatorcolor=$background \
+	--insidevercolor=$passwordCorrect --insidewrongcolor=$passwordIncorrect \
+	--ringvercolor=$foreground --ringwrongcolor=$foreground --indpos="x+280:h-70" \
+	--radius=20 --ring-width=4 --veriftext="" --wrongtext="" \
+	--verifcolor="$foreground" --timecolor="$foreground" --datecolor="$foreground" \
+	--noinputtext="" \
+	--force-clock
+
+trap "rm '$file3'" EXIT
