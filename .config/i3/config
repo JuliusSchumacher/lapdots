@@ -197,7 +197,7 @@ exec_always wal -R
 exec_always "xrdb ~/.Xresources"
 
 exec "compton --config ~/.config/compton/compton.conf -b"
-exec "dunst"
+exec "~/.bin/dunst.sh"
 exec "~/.bin/lemonbar.sh"
 
 # mail notifiers don't work!
