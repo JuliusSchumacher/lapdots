@@ -119,9 +119,13 @@ RPROMPT="%n@%M:%~"
 
 export PATH=~/.bin:$PATH
 export EDITOR=vim
+export TERM=rxvt-unicode-256color
 
 alias ls='ls --color=auto'
 alias pika=pikaur
 
 alias gcal='gcalcli --calendar juliusschumacher@gmail.com'
 alias pdf='llpp'
+alias py='python'
+alias less='lesspipe.sh'
+alias ghci='stack ghci'
