@@ -171,7 +171,7 @@ bindsym $mod+shift+w exec ~/.bin/dmenu_nm.sh
 
 # Theme
 
-font -misc-tamsyn-medium-r-normal--14-101-100-100-c-70-iso8859-1
+font -misc-tamzen-medium-r-normal--14-101-100-100-c-70-iso8859-1
 
 
 hide_edge_borders both
