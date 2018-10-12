@@ -1,9 +1,16 @@
-bg="%{B#161616}"
-fg="%{F#FFFFFF}"
-red="%{B#E84F4F}"
-f_green="%{F#B7CE42}"
-f_red="%{F#E84F4F}"
+#bg="%{B#161616}"
+#fg="%{F#FFFFFF}"
+#red="%{B#E84F4F}"
+#f_green="%{F#B7CE42}"
+#f_red="%{F#E84F4F}"
 
+. "${HOME}/.cache/wal/colors.sh"
+
+bg="%{B$color0}"
+fg="%{F$color7}"
+red="%{B$color2}"
+f_green="%{F$color4}"
+f_red="%{F$color2}"
 
 Clock() {
 	DATETIME=$(date "+%T %a %b %d")
