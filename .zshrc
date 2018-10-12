@@ -33,7 +33,7 @@ DISABLE_AUTO_UPDATE="true"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -52,7 +52,7 @@ DISABLE_AUTO_UPDATE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git colorize colored-man-pages)
 
 
 # User configuration
@@ -70,10 +70,10 @@ plugins=(git)
 # fi
 
 # Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
+export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -102,26 +102,56 @@ zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]}' 'r:|[._-]=* r
 zstyle ':completion:*' max-errors 3
 zstyle :compinstall filename '/home/factor/.zshrc'
 
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /etc/profile.d/autojump.zsh
+source /usr/share/zsh/plugins/zsh-autopair/autopair.zsh
+source ~/.bin/transfer.sh
+
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=10000
+SAVEHIST=10000
 setopt appendhistory autocd extendedglob nomatch
 unsetopt beep notify
 bindkey -e
 # End of lines configured by zsh-newuser-install
 
-PROMPT=">>  "
-RPROMPT="%n@%M:%~"
+
+#Custom prompt
+ZSH_THEME_GIT_PROMPT_PREFIX="%F{242}("
+ZSH_THEME_GIT_PROMPT_SUFFIX=")%f "
+ZSH_THEME_GIT_PROMPT_DIRTY="±"
+ZSH_THEME_GIT_PROMPT_BEHIND_REMOTE="⇣"
+ZSH_THEME_GIT_PROMPT_AHEAD_REMOTE="⇡"
+
+
+git_status() {
+	 echo -n "$(git_prompt_status)$(git_prompt_info)"
+}
+
+dir_status() {
+	echo -n "%F{green}"
+}
+
+PROMPT="%(?.%F{white}.%F{red})>>%f "
+RPROMPT='%n@%M:%F{green}%~%f $(git_status)'
 
 export PATH=~/.bin:$PATH
 export EDITOR=vim
+export TERM=rxvt-unicode-256color
 
 alias ls='ls --color=auto'
 alias pika=pikaur
 
 alias gcal='gcalcli --calendar juliusschumacher@gmail.com'
 alias pdf='llpp'
+alias py='python'
+alias less='lesspipe.sh'
+alias ghci='stack ghci'
+alias haskell='stack runghc'
+alias weather='curl wttr.in/gothenburg'
+
+
