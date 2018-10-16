@@ -29,8 +29,8 @@
 !*color7: #DDDDDD
 !*color15: #CCCCCC
 URxvt*font: -*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
-URxvt*font: -misc-tamzen-medium-r-normal--14-101-100-100-c-70-iso8859-1, -misc-tamzenforpowerline-medium-r-normal--14-101-100-100-c-70-iso8859-1, -gnu-unifont-medium-r-normal-sans-16-160-75-75-c-80-iso10646-1
 URxvt.boldFont: -misc-tamzen-bold-r-normal--14-101-100-100-c-70-iso8859-1
+URxvt*font: -misc-tamzen-medium-r-normal--14-101-100-100-c-70-iso8859-1, -misc-tamzenforpowerline-medium-r-normal--14-101-100-100-c-70-iso8859-1, -gnu-unifont-medium-r-normal-sans-16-160-75-75-c-80-iso10646-1
 URxvt.scrollBar: false
-URxvt.internalBorder: 10
+URxvt.internalBorder: 20
 URxvt.letterSpace: 1

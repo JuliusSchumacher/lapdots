@@ -52,7 +52,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colorize colored-man-pages)
+plugins=(git colorize colored-man-pages ssh-agent)
 
 
 # User configuration
@@ -99,7 +99,7 @@ source $ZSH/oh-my-zsh.sh
 
 zstyle ':completion:*' completer _complete _ignored _approximate
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
-zstyle ':completion:*' max-errors 3
+zstyle ':completion:*' max-errors 1
 zstyle :compinstall filename '/home/factor/.zshrc'
 
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -122,7 +122,7 @@ bindkey -e
 
 #Custom prompt
 ZSH_THEME_GIT_PROMPT_PREFIX="%F{242}("
-ZSH_THEME_GIT_PROMPT_SUFFIX=")%f "
+ZSH_THEME_GIT_PROMPT_SUFFIX=")%f"
 ZSH_THEME_GIT_PROMPT_DIRTY="±"
 ZSH_THEME_GIT_PROMPT_BEHIND_REMOTE="⇣"
 ZSH_THEME_GIT_PROMPT_AHEAD_REMOTE="⇡"
