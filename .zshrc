@@ -52,7 +52,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colorize colored-man-pages ssh-agent)
+plugins=(git colorize colored-man-pages ssh-agent last-working-dir)
 
 
 # User configuration
@@ -129,11 +129,11 @@ ZSH_THEME_GIT_PROMPT_AHEAD_REMOTE="⇡"
 
 
 git_status() {
-	 echo -n "$(git_prompt_status)$(git_prompt_info)"
+  echo -n "$(git_prompt_status)$(git_prompt_info)"
 }
 
 dir_status() {
-	echo -n "%F{green}"
+  echo -n "%F{green}"
 }
 
 PROMPT="%(?.%F{white}.%F{red})>>%f "
