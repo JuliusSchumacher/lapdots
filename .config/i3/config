@@ -46,7 +46,7 @@ bindsym $mod+d exec ~/.bin/dmenu.sh
 bindsym $mod+j focus left
 bindsym $mod+k focus down
 bindsym $mod+l focus up
-bindsym $mod+ö focus right
+bindsym $mod+odiaeresis focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -58,7 +58,7 @@ bindsym $mod+Right focus right
 bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
 bindsym $mod+Shift+l move up
-bindsym $mod+Shift+ö move right
+bindsym $mod+Shift+odiaeresis move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -147,7 +147,7 @@ mode "resize" {
         bindsym j resize shrink width 10 px or 10 ppt
         bindsym k resize grow height 10 px or 10 ppt
         bindsym l resize shrink height 10 px or 10 ppt
-        bindsym ö resize grow width 10 px or 10 ppt
+        bindsym odiaeresis resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -171,8 +171,8 @@ bindsym $mod+shift+w exec ~/.bin/dmenu_nm.sh
 
 # Theme
 
-font -misc-tamzen-medium-r-normal--14-101-100-100-c-70-iso8859-1
-
+#font -misc-tamzen-medium-r-normal--14-101-100-100-c-70-iso8859-1
+font -nerdypepper-scientifica-medium-r-normal--11-80-100-100-c-50-iso10646-1
 
 hide_edge_borders both
 for_window [class="^.*"] border pixel 0
