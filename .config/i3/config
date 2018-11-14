@@ -174,12 +174,14 @@ bindsym $mod+shift+w exec ~/.bin/dmenu_nm.sh
 #font -misc-tamzen-medium-r-normal--14-101-100-100-c-70-iso8859-1
 font -nerdypepper-scientifica-medium-r-normal--11-80-100-100-c-50-iso10646-1
 
-hide_edge_borders both
-for_window [class="^.*"] border pixel 0
+# hide_edge_borders both
+for_window [class="^.*"] border pixel 4
+smart_borders on
+
 gaps inner 15
 gaps outer 0
 
-for_window [class="^.*"] resize set 600 400
+# for_window [class="^.*"] resize set 600 400
 
 # custom colors imported from pywal
 set_from_resource $fg i3wm.foreground
@@ -187,7 +189,7 @@ set_from_resource $bg i3wm.background
 set_from_resource $focus i3wm.color2
 
 # class                 border  backgr. text    indicator child_border
-client.focused          $focus  $focus  $fg     $focus    $bg
+client.focused          $focus  $focus  $fg     $focus    $focus
 client.unfocused        $focus  $bg     $fg     $bg       $bg
 client.focused_inactive $focus  $bg     $focus  $bg       $bg
 
