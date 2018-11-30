@@ -12,7 +12,7 @@ case "$(echo -e "Shutdown\nRestart\nLogout\nLock" | dmenu \
 	-fn "-nerdypepper-scientifica-medium-r-normal--11-80-100-100-c-50-iso10646-1" \
 	-sb $color2 \
 	-nb $color0 \
-	-l 4 \
+	-l 4 -i \
 	)" in
 		Shutdown) exec systemctl poweroff;;
 		Restart) exec systemctl reboot;;
