@@ -121,6 +121,9 @@ Mail() {
 	echo "$f_green\ue1a8$fg $chalmail/$gumail"
 }
 
+Power() {
+	echo "%{A:~/.bin/dmenu_power.sh:}$red%{O5}\ue10c%{O5}$bg%{A} "
+}
 
 while true; do
 	buf="$bg"
@@ -137,7 +140,8 @@ while true; do
 	buf="$buf $(Memory)"
 	buf="$buf $(Battery)"
 	buf="$buf $(Date)"
-	buf="$buf $(Clock) %{O10}"
+	buf="$buf $(Clock)"
+	buf="$buf $(Power)"
 	echo -e $buf
 	sleep 0.5
 done

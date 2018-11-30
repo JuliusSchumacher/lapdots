@@ -13,8 +13,8 @@ filetype plugin indent on
 set number
 set relativenumber
 set list
-set tabstop=2
-set shiftwidth=2
+set tabstop=3
+set shiftwidth=3
 set encoding=utf-8
 
 colorscheme wal
