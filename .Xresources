@@ -1,37 +1,17 @@
 
-!*.foreground: #FFFFFF
-!URxvt*background: #161616
-!URxvt.cursorColor: #FDA53C
+! Set font
+URxvt*font:xft:curie:size=13
 
-
-!black
-!*color0: #222222
-!*color8: #666666
-!red
-!*color1: #E84F4F
-!*color9: #D23D3D
-!green
-!*color2: #B7CE42
-!*color10: #BDE077
-!yellow
-!*color3: #FEA63C
-!*color11: #FFE863
-!blue
-!*color4: #66AABB
-!*color12: #AACCBB
-!magenta
-!*color5: #B7416E
-!*color13: #E16A98
-!cyan
-!*color6: #6D878D
-!*color14: #42717B
-!white
-!*color7: #DDDDDD
-!*color15: #CCCCCC
-!URxvt*font: -*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
-!URxvt.boldFont: -misc-tamzen-bold-r-normal--14-101-100-100-c-70-iso8859-1
-!URxvt*font: -misc-tamzen-medium-r-normal--14-101-100-100-c-70-iso8859-1, -misc-tamzenforpowerline-medium-r-normal--14-101-100-100-c-70-iso8859-1, -gnu-unifont-medium-r-normal-sans-16-160-75-75-c-80-iso10646-1
-URxvt*font:xft:curie:size=12
+! Appearance
 URxvt.scrollBar: false
 URxvt.internalBorder: 20
-URxvt.letterSpace: 1
+URxvt.letterSpace: 1 
+
+! do not scroll with output
+URxvt*scrollTtyOutput: false
+
+! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
+URxvt*scrollWithBuffer: true
+
+! scroll back to the bottom on keypress
+URxvt*scrollTtyKeypress: true

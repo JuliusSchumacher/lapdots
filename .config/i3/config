@@ -43,10 +43,10 @@ bindsym $mod+d exec ~/.bin/dmenu.sh
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+odiaeresis focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -55,10 +55,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+odiaeresis move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -67,7 +67,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+b split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -144,10 +144,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym odiaeresis resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -175,11 +175,12 @@ bindsym $mod+shift+w exec ~/.bin/dmenu_nm.sh
 font -nerdypepper-scientifica-medium-r-normal--11-80-100-100-c-50-iso10646-1
 
 # hide_edge_borders both
-for_window [class="^.*"] border pixel 4
-smart_borders on
+for_window [class="^.*"] border pixel 6
+for_window [class="Firefox"] border none
+# smart_borders on
 
 gaps inner 15
-gaps outer 0
+gaps outer 9
 
 # for_window [class="^.*"] resize set 600 400
 
@@ -193,6 +194,8 @@ client.focused          $focus  $focus  $fg     $focus    $focus
 client.unfocused        $focus  $bg     $fg     $bg       $bg
 client.focused_inactive $focus  $bg     $focus  $bg       $bg
 
+client.background       $bg
+
 #Startup
 
 exec_always "setxkbmap se"
@@ -200,6 +203,8 @@ exec_always "setxkbmap se"
 exec_always wal -R
 exec_always "xrdb ~/.Xresources"
 
+exec "unclutter --jitter 10px --ignore-scrolling --timeout 2"
+exec "xbindkeys"
 exec "compton --config ~/.config/compton/compton.conf -b"
 exec "~/.bin/dunst.sh"
 exec "~/.bin/lemonbar.sh"

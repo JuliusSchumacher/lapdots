@@ -82,7 +82,15 @@ Launcher() {
 Volume() {
 	vol=$(amixer get Master | sed -n 's/^.*\[\([0-9]\+\)%.*$/\1/p'| uniq)
 	perc="%"
-	echo "$f_green\ue05d$fg $vol$perc"
+	
+	if [ "`amixer get Master | grep off`" ]
+	then
+		icon="\ue052"
+	else
+		icon="\ue05d"
+	fi
+
+	echo "$f_green$icon$fg $vol$perc"
 }
 
 Memory() {
@@ -96,7 +104,8 @@ Processor() {
 #	hz="MHz"
 #	echo "$f_green\ue026$fg $freq$hz"
 
-	usage=$(grep 'cpu ' /proc/stat | awk '{print ($2+$4)*100/($2+$4+$5)}' | cut -c1-4 )
+	usage=$(top -bn1 | grep "Cpu(s)" | sed "s/.*, *\([0-9.]*\)%* id.*/\1/" | awk '{print 100 - $1}')
+#	usage=$(grep 'cpu ' /proc/stat | awk '{print ($2+$4)*100/($2+$4+$5)}' | cut -c1-4 )
 	perc="%"
 	echo "$f_green\ue026$fg $usage$perc"
 

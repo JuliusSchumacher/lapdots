@@ -1,9 +1,14 @@
 # volume
-"pactl set-sink-volume 0 +1000"
+#"pactl set-sink-volume 0 +1000"
+"amixer set Master 1%+"
    XF86AudioRaiseVolume
 
-"pactl set-sink-volume 0 -1000"
+#"pactl set-sink-volume 0 -1000"
+"amixer set Master 1%-"
    XF86AudioLowerVolume
+
+"amixer set Master toggle"
+   XF86AudioMute
 
 # brightness
 "lux -a 5%"

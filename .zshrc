@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-ZSH=/home/factor/.oh-my-zsh/
+ZSH=/usr/share/oh-my-zsh/
 
 
 # Set name of the theme to load. Optionally, if you set this to "random"
@@ -52,7 +52,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colorize colored-man-pages ssh-agent last-working-dir)
+plugins=(git colorize colored-man-pages last-working-dir)
 
 
 # User configuration
@@ -116,7 +116,7 @@ HISTSIZE=10000
 SAVEHIST=10000
 setopt appendhistory autocd extendedglob nomatch
 unsetopt beep notify
-bindkey -e
+bindkey -v
 # End of lines configured by zsh-newuser-install
 
 
@@ -140,7 +140,7 @@ PROMPT="%(?.%F{white}.%F{red})>>%f "
 RPROMPT='%n@%M:%F{green}%~%f $(git_status)'
 
 export PATH=~/.bin:$PATH
-export EDITOR=vim
+export EDITOR=nvim
 export TERM=rxvt-unicode-256color
 
 alias ls='ls --color=auto'
@@ -153,5 +153,6 @@ alias less='lesspipe.sh'
 alias ghci='stack ghci'
 alias haskell='stack runghc'
 alias weather='curl wttr.in/gothenburg'
+alias vim='nvim'
 
-
+alias svim='sudoedit'
