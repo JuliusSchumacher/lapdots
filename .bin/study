@@ -1,0 +1,8 @@
+#!/bin/bash
+
+while true; do
+	espeak "study" &>/dev/null &
+	termdown -a 20m -T "study"
+	espeak "break" &>/dev/null &
+	termdown -a 5m -T "break"
+done

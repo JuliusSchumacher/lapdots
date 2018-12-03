@@ -205,6 +205,7 @@ exec_always "xrdb ~/.Xresources"
 
 exec "unclutter --jitter 10px --ignore-scrolling --timeout 2"
 exec "xbindkeys"
+exec_always "xmodmap ~/.config/xmodmap/conf"
 exec "compton --config ~/.config/compton/compton.conf -b"
 exec "~/.bin/dunst.sh"
 exec "~/.bin/lemonbar.sh"
