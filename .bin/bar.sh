@@ -103,8 +103,8 @@ Processor() {
 #	freq=$(lscpu | grep "CPU MHz" | awk '{print $3}')
 #	hz="MHz"
 #	echo "$f_green\ue026$fg $freq$hz"
-
-	usage=$(top -bn1 | grep "Cpu(s)" | sed "s/.*, *\([0-9.]*\)%* id.*/\1/" | awk '{print 100 - $1}')
+	  
+	usage=$(top -bn1 | grep "Cpu(s)" | cut -b 9-14)
 #	usage=$(grep 'cpu ' /proc/stat | awk '{print ($2+$4)*100/($2+$4+$5)}' | cut -c1-4 )
 	perc="%"
 	echo "$f_green\ue026$fg $usage$perc"

@@ -106,6 +106,7 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /etc/profile.d/autojump.zsh
 source /usr/share/zsh/plugins/zsh-autopair/autopair.zsh
 source ~/.bin/transfer.sh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 autoload -Uz compinit
 compinit
