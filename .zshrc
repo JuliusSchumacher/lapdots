@@ -107,6 +107,10 @@ source /etc/profile.d/autojump.zsh
 source /usr/share/zsh/plugins/zsh-autopair/autopair.zsh
 source ~/.bin/transfer.sh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh 
+
+# load zsh-completions
+# fpath=()
 
 autoload -Uz compinit
 compinit
