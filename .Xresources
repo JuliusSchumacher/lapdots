@@ -4,7 +4,7 @@ URxvt*font:xft:curie:size=13
 
 ! Appearance
 URxvt.scrollBar: false
-URxvt.internalBorder: 20
+URxvt.internalBorder: 32
 URxvt.letterSpace: 1 
 
 ! do not scroll with output
