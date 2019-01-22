@@ -2,7 +2,7 @@
 
 while true; do
 	espeak "study" &>/dev/null &
-	termdown -a 20m -T "study"
+	termdown -a $1m -T "study"
 	espeak "break" &>/dev/null &
-	termdown -a 5m -T "break"
+	termdown -a $2m -T "break"
 done

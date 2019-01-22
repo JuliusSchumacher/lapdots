@@ -171,3 +171,4 @@ alias weather='curl wttr.in/gothenburg'
 alias vim='nvim'
 
 alias svim='sudoedit'
+alias java8='/usr/lib/jvm/java-8-openjdk/bin/java'

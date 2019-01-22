@@ -4,6 +4,8 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'dylanaraps/wal.vim'
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'tpope/vim-sensible'
+	Plug 'artur-shaik/vim-javacomplete2'
+	Plug 'neomake/neomake'
 call plug#end()
 
 " theming and sensible settings
@@ -40,8 +42,32 @@ let g:airline_symbols.maxlinenr = ''
 
 " syntax checking
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_python_checkers = ['pylint']
+call neomake#configure#automake('nrw', 500)
+
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+" let g:syntastic_python_checkers = ['pylint']
+
+" autocompletion
+let g:deoplete#enable_at_startup = 1
+set omnifunc=syntaxcomplete#Complete
+
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#omni_patterns = {}
+let g:deoplete#auto_completion_start_length = 2
+let g:deoplete#sources = {}
+let g:deoplete#sources._ = []
+let g:deoplete#file#enable_buffer_path = 1
+if !exists('g:deoplete#omni#input_patterns')
+    let g:deoplete#omni#input_patterns = {}
+ endif
+
+" Java
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
+let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
+
+autocmd FileType java setlocal tabstop=4
+autocmd FileType java setlocal shiftwidth=4
+autocmd FileType java setlocal expandtab
