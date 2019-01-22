@@ -91,3 +91,11 @@ media/
 .subversion/
 .vbam/
 .wget-hsts
+.config/citra-emu/
+.config/gtk-2.0/
+.config/nautilus/
+.config/totem/
+.parallel/
+.task/
+.taskrc
+.wine/
