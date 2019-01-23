@@ -26,7 +26,7 @@ colorscheme wal
 let g:airline_theme='term'
 let g:airline_powerline_fonts = 1
 
-if !exists('g:airline_symbols') 
+if !exists('g:airline_symbols')
 	let g:airline_symbols = {}
 endif
 
@@ -61,8 +61,8 @@ let g:deoplete#sources = {}
 let g:deoplete#sources._ = []
 let g:deoplete#file#enable_buffer_path = 1
 if !exists('g:deoplete#omni#input_patterns')
-    let g:deoplete#omni#input_patterns = {}
- endif
+	let g:deoplete#omni#input_patterns = {}
+endif
 
 " Java
 autocmd FileType java setlocal omnifunc=javacomplete#Complete

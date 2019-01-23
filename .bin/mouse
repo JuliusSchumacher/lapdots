@@ -1,6 +1,8 @@
 #!/bin/bash
 notify-send "Mouse Enabled"
 xinput enable 11
+xinput enable 12
 sleep 30
 notify-send "Mouse Disabled"
 xinput disable 11
+xinput disable 12
