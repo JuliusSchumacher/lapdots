@@ -99,3 +99,8 @@ media/
 .task/
 .taskrc
 .wine/
+.config/Signal/
+.python_history
+.yarnrc
+.zcompdump-laptop-5.7
+desktop/
