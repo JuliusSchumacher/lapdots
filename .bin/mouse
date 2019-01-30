@@ -1,8 +1,13 @@
 #!/bin/bash
-notify-send "Mouse Enabled"
-xinput enable 11
-xinput enable 12
-sleep 30
-notify-send "Mouse Disabled"
-xinput disable 11
-xinput disable 12
+enabled=$(cat ~/.cache/binmouse)
+if [ "$enabled" -eq "0" ] ; then
+	notify-send "Mouse Enabled"
+	xinput enable 11
+	xinput enable 12
+	echo 1 > ~/.cache/binmouse
+else 
+	notify-send "Mouse Disabled"
+	xinput disable 11
+	xinput disable 12
+	echo 0 > ~/.cache/binmouse
+fi
