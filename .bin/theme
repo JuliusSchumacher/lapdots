@@ -1,7 +1,7 @@
 #! /bin/zsh
 
 # generate theme from image
-wal -i $1 -g $2 $3 $4 $5
+wal -i $1 $2 $3 $4 $5
 
 # restart lemonbar
 pkill lemonbar

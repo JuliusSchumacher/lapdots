@@ -1,4 +1,6 @@
 #!/bin/bash
 
 javac  "$1"
-java ${1%.*}
+if [ "$?" -eq 0 ] ; then
+	java ${1%.*}
+fi

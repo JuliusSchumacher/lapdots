@@ -1,0 +1,11 @@
+#!/bin/python
+
+import requests
+import json
+
+r = requests.get('http://carbonateapiprod.azurewebsites.net/api/v1/mealprovidingunits/21f31565-5c2b-4b47-d2a1-08d558129279/dishoccurrences')
+
+data = json.loads(r.content)
+for d in data:
+    print(d.get("dish").get("dishName"))
+
