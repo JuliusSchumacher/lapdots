@@ -6,3 +6,4 @@ export SSH_AUTH_SOCK
 xinput disable 12
 xinput disable 11
 i3
+# awesome
