@@ -6,6 +6,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'tpope/vim-sensible'
 	Plug 'artur-shaik/vim-javacomplete2'
 	Plug 'neomake/neomake'
+	Plug 'Yggdroot/indentLine'
 call plug#end()
 
 " theming and sensible settings
