@@ -104,3 +104,7 @@ media/
 .yarnrc
 .zcompdump-laptop-5.7
 desktop/
+.config/unity3d/
+.oldwine/
+.zcompdump-laptop-5.7.1
+chummer5e/
