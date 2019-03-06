@@ -1,0 +1,7 @@
+#!/bin/zsh
+
+find -name "*.java" > sources
+
+javac @sources -Xprefer:source && java ${1%.*}
+
+rm sources

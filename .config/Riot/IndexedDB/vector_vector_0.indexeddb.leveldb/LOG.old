@@ -1,0 +1,25 @@
+2019/02/15-14:04:41.243 11550 Reusing MANIFEST /home/factor/.config/Riot/IndexedDB/vector_vector_0.indexeddb.leveldb/MANIFEST-000001
+2019/02/15-14:05:40.155 11552 Current memtable full; waiting...
+2019/02/15-14:05:40.156 14469 Level-0 table #5: started
+2019/02/15-14:05:40.178 14469 Level-0 table #5: 64293 bytes OK
+2019/02/15-14:05:40.221 14469 Delete type=0 #3
+2019/02/15-14:05:40.221 14469 Level-0 table #7: started
+2019/02/15-14:05:40.221 14469 Level-0 table #7: 0 bytes OK
+2019/02/15-14:05:40.266 14469 Delete type=0 #4
+2019/02/15-14:05:40.266 14469 Manual compaction at level-0 from '\x00\x03\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x04\x00\x00\x00' @ 0 : 0; will stop at (end)
+2019/02/15-14:05:40.312 11553 Current memtable full; waiting...
+2019/02/15-14:05:40.312 14469 Level-0 table #9: started
+2019/02/15-14:05:40.332 14469 Level-0 table #9: 920 bytes OK
+2019/02/15-14:05:40.372 14469 Delete type=0 #6
+2019/02/15-14:05:40.372 14469 Level-0 table #11: started
+2019/02/15-14:05:40.372 14469 Level-0 table #11: 0 bytes OK
+2019/02/15-14:05:40.418 14469 Delete type=0 #8
+2019/02/15-14:05:40.419 14469 Manual compaction at level-0 from '\x00\x02\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x03\x00\x00\x00' @ 0 : 0; will stop at (end)
+2019/02/15-14:05:40.419 14469 Manual compaction at level-1 from '\x00\x02\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x03\x00\x00\x00' @ 0 : 0; will stop at '\x00\x02\x03\x02\x04\x01\x01\x01\x00-' @ 394 : 0
+2019/02/15-14:05:40.419 14469 Compacting 1@1 + 1@2 files
+2019/02/15-14:05:40.442 14469 Generated table #12@1: 37 keys, 3208 bytes
+2019/02/15-14:05:40.442 14469 Compacted 1@1 + 1@2 files => 3208 bytes
+2019/02/15-14:05:40.483 14469 compacted to: files[ 0 0 1 0 0 0 0 ]
+2019/02/15-14:05:40.484 14469 Delete type=2 #5
+2019/02/15-14:05:40.484 14469 Delete type=2 #9
+2019/02/15-14:05:40.484 14469 Manual compaction at level-1 from '\x00\x02\x03\x02\x04\x01\x01\x01\x00-' @ 394 : 0 .. '\x00\x03\x00\x00\x00' @ 0 : 0; will stop at (end)
