@@ -108,3 +108,8 @@ desktop/
 .oldwine/
 .zcompdump-laptop-5.7.1
 chummer5e/
+.android/
+.byobu/
+.mplayer/
+.orpie/
+mopidy-spotify-fix/
