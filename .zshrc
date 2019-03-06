@@ -157,6 +157,7 @@ RPROMPT='%n@%M:%F{green}%~%f $(git_status)'
 export PATH=~/.bin:$PATH
 export EDITOR=nvim
 export TERM=rxvt-unicode-256color
+export TERMCMD=urxvt
 export CLASSPATH="/usr/share/java/*:"
 
 alias ls='ls --color=auto'

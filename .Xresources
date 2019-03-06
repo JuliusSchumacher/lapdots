@@ -6,6 +6,7 @@ URxvt*font:xft:curie:size=13
 URxvt.scrollBar: false
 URxvt.internalBorder: 32
 URxvt.letterSpace: 1 
+URxvt.saveLines: 20000
 
 ! do not scroll with output
 URxvt*scrollTtyOutput: false

@@ -143,5 +143,5 @@ while true; do
 	buf="$buf $(Clock)"
 	buf="$buf $(Power)"
 	echo -e $buf
-	sleep 0.5
+	sleep 0.8
 done

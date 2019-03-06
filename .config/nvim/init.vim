@@ -7,6 +7,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'artur-shaik/vim-javacomplete2'
 	Plug 'neomake/neomake'
 	Plug 'Yggdroot/indentLine'
+	Plug 'airblade/vim-gitgutter'
 call plug#end()
 
 " theming and sensible settings

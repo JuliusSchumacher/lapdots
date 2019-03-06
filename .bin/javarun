@@ -1,6 +1,3 @@
 #!/bin/zsh
 
-javac  "$1"
-if [ "$?" -eq 0 ] ; then
-	java ${1%.*}
-fi
+javac -Xprefer:source "$1"  && java ${1%.*}
