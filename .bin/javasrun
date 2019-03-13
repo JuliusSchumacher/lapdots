@@ -2,6 +2,7 @@
 
 find -name "*.java" > sources
 
-javac @sources -Xprefer:source && java ${1%.*}
+javac @sources -d out/ -Xprefer:source && cd out && java ${1%.*}
 
+cd ..
 rm sources
