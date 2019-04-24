@@ -73,3 +73,8 @@ let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
 autocmd FileType java setlocal tabstop=4
 autocmd FileType java setlocal shiftwidth=4
 autocmd FileType java setlocal expandtab
+
+
+" Assembly
+autocmd FileType asm setlocal tabstop=8
+autocmd FileType asm setlocal shiftwidth=8

@@ -160,17 +160,18 @@ export TERM=rxvt-unicode-256color
 export TERMCMD=urxvt
 export CLASSPATH="/usr/share/java/*:"
 
-alias ls='ls --color=auto'
-alias pika=pikaur
+# alias ls='ls --color=auto'
+alias ls='exa'
+alias pika='pikaur'
+alias less='lesspipe.sh'
+
+alias vim='nvim'
+alias svim='sudoedit'
 
 alias gcal='gcalcli --calendar juliusschumacher@gmail.com'
 alias pdf='llpp'
-alias py='python'
-alias less='lesspipe.sh'
+alias weather='curl wttr.in/gothenburg'
+
 alias ghci='stack ghci'
 alias haskell='stack runghc'
-alias weather='curl wttr.in/gothenburg'
-alias vim='nvim'
-
-alias svim='sudoedit'
-alias java8='/usr/lib/jvm/java-8-openjdk/bin/java'
+alias py='python'
