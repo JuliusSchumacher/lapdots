@@ -161,7 +161,10 @@ export TERMCMD=urxvt
 export CLASSPATH="/usr/share/java/*:"
 
 # alias ls='ls --color=auto'
-alias ls='exa'
+alias ls='exa --group-directories-first'
+alias ll='exa --group-directories-first -l'
+alias la='exa --group-directories-first -la'
+
 alias pika='pikaur'
 alias less='lesspipe.sh'
 

@@ -78,3 +78,9 @@ autocmd FileType java setlocal expandtab
 " Assembly
 autocmd FileType asm setlocal tabstop=8
 autocmd FileType asm setlocal shiftwidth=8
+
+" C
+autocmd FileType c setlocal tabstop=4
+autocmd FileType c setlocal shiftwidth=4
+autocmd FileType c setlocal expandtab
+autocmd BufEnter,BufRead,BufNewFile *.h setfiletype c
