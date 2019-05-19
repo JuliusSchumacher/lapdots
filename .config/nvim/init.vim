@@ -20,6 +20,7 @@ set list
 set tabstop=3
 set shiftwidth=3
 set encoding=utf-8
+set clipboard+=unnamedplus
 
 colorscheme wal
 
@@ -84,3 +85,9 @@ autocmd FileType c setlocal tabstop=4
 autocmd FileType c setlocal shiftwidth=4
 autocmd FileType c setlocal expandtab
 autocmd BufEnter,BufRead,BufNewFile *.h setfiletype c
+
+" Markdown
+
+autocmd FileType markdown setlocal tabstop=8
+autocmd FileType markdown setlocal shiftwidth=8
+autocmd FileType markdown setlocal spell

@@ -107,7 +107,7 @@ source /etc/profile.d/autojump.zsh
 source /usr/share/zsh/plugins/zsh-autopair/autopair.zsh
 source ~/.bin/transfer.sh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh 
+source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 # Keybindings for history-substring-search
 
@@ -164,6 +164,7 @@ export CLASSPATH="/usr/share/java/*:"
 alias ls='exa --group-directories-first'
 alias ll='exa --group-directories-first -l'
 alias la='exa --group-directories-first -la'
+alias lt='exa -T'
 
 alias pika='pikaur'
 alias less='lesspipe.sh'
@@ -172,7 +173,7 @@ alias vim='nvim'
 alias svim='sudoedit'
 
 alias gcal='gcalcli --calendar juliusschumacher@gmail.com'
-alias pdf='llpp'
+alias pdf='zathura'
 alias weather='curl wttr.in/gothenburg'
 
 alias ghci='stack ghci'

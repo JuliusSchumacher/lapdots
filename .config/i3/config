@@ -169,6 +169,10 @@ bindsym $mod+r mode "resize"
 bindsym $mod+shift+w exec ~/.bin/dmenu_nm.sh
 bindsym $mod+m exec ~/.bin/mouse
 
+# Scratchpad
+
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
 
 # Theme
 
