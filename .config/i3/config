@@ -181,7 +181,7 @@ font -nerdypepper-scientifica-medium-r-normal--11-80-100-100-c-50-iso10646-1
 
 # hide_edge_borders both
 for_window [class="^.*"] border pixel 6
-for_window [class="Firefox"] border none
+# for_window [class="Firefox"] border none
 # smart_borders on
 
 gaps inner 15
