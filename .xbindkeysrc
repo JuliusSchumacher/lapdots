@@ -10,6 +10,9 @@
 "amixer set Master toggle"
    XF86AudioMute
 
+"amixer set Capture toggle"
+   XF86AudioMicMute
+
 # brightness
 "lux -a 5%"
    XF86MonBrightnessUp
