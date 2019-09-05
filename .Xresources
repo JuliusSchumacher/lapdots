@@ -1,11 +1,11 @@
 
 ! Set font
-URxvt*font:xft:curie:size=13
+URxvt*font:xft:curie:pixelsize=13:antialias:false
 
 ! Appearance
 URxvt.scrollBar: false
 URxvt.internalBorder: 32
-URxvt.letterSpace: 1 
+URxvt.letterSpace: 1
 URxvt.saveLines: 20000
 
 ! do not scroll with output

@@ -8,6 +8,8 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'neomake/neomake'
 	Plug 'Yggdroot/indentLine'
 	Plug 'airblade/vim-gitgutter'
+	Plug 'alvan/vim-closetag'
+	Plug 'lervag/vimtex'
 call plug#end()
 
 " theming and sensible settings
@@ -17,8 +19,8 @@ filetype plugin indent on
 set number
 set relativenumber
 set list
-set tabstop=3
-set shiftwidth=3
+set tabstop=4
+set shiftwidth=4
 set encoding=utf-8
 set clipboard+=unnamedplus
 
@@ -88,6 +90,26 @@ autocmd BufEnter,BufRead,BufNewFile *.h setfiletype c
 
 " Markdown
 
-autocmd FileType markdown setlocal tabstop=8
-autocmd FileType markdown setlocal shiftwidth=8
+autocmd FileType markdown setlocal tabstop=4
+autocmd FileType markdown setlocal shiftwidth=4
 autocmd FileType markdown setlocal spell
+
+" Text
+
+autocmd FileType text setlocal tabstop=4
+autocmd FileType text setlocal shiftwidth=4
+autocmd FileType text setlocal spell
+
+
+" LaTeX
+
+let g:vimtex_view_method='zathura'
+let g:vimtex_quickfix_open_on_warning=0
+let g:vimtex_compiler_progname='nvr'
+let g:deoplete#omni#input_patterns.tex=g:vimtex#re#deoplete
+autocmd FileType tex setlocal tabstop=4
+autocmd FileType tex setlocal shiftwidth=4
+autocmd FileType tex setlocal expandtab
+autocmd FileType tex VimtexCompile
+
+

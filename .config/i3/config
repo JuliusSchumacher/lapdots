@@ -168,6 +168,7 @@ bindsym $mod+r mode "resize"
 
 bindsym $mod+shift+w exec ~/.bin/dmenu_nm.sh
 bindsym $mod+m exec ~/.bin/mouse
+bindsym $mod+shift+b exec btmenu
 
 # Scratchpad
 

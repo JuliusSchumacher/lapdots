@@ -2,11 +2,13 @@
 enabled=$(cat ~/.cache/binmouse)
 if [ "$enabled" -eq "0" ] ; then
 	notify-send "Mouse Enabled"
+	sudo modprobe psmouse
 	xinput enable 11
 	xinput enable 12
 	echo 1 > ~/.cache/binmouse
-else 
+else
 	notify-send "Mouse Disabled"
+	sudo modprobe -r psmouse
 	xinput disable 11
 	xinput disable 12
 	echo 0 > ~/.cache/binmouse

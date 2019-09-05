@@ -20,6 +20,7 @@
 .config/evolution/
 .config/gconf/
 .config/gnome-boxes/
+.config/GIMP
 .config/gtk-3.0/
 .config/htop/
 .config/inkscape/

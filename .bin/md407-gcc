@@ -1,0 +1,5 @@
+#!/bin/zsh
+
+arm-none-eabi-gcc -c $1 -g -O0 -mthumb -Wall -march=armv6-m -msoft-float -Wa,-adhln=test.s -DUSBDM -o $1.o -I. -I.
+
+
