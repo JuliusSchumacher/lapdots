@@ -1,0 +1,2 @@
+#!/bin/bash
+ssh pub -X x2x -north -to :0 &
