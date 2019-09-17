@@ -7,14 +7,16 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'artur-shaik/vim-javacomplete2'
 	Plug 'neomake/neomake'
 	Plug 'Yggdroot/indentLine'
-	Plug 'airblade/vim-gitgutter'
-	Plug 'alvan/vim-closetag'
+"	Plug 'airblade/vim-gitgutter'
+"	Plug 'alvan/vim-closetag'
 	Plug 'lervag/vimtex'
+	Plug 'simnalamburt/vim-mundo'
 call plug#end()
 
 " theming and sensible settings
 
 syntax on
+colorscheme wal
 filetype plugin indent on
 set number
 set relativenumber
@@ -23,8 +25,36 @@ set tabstop=4
 set shiftwidth=4
 set encoding=utf-8
 set clipboard+=unnamedplus
+set mouse=a
+set scrolloff=3
 
-colorscheme wal
+" Remember last position in file
+
+if has("autocmd")
+	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
+" w/q aliases
+
+cnoreabbrev W! w!
+cnoreabbrev Q! q!
+cnoreabbrev Qall! qall!
+cnoreabbrev Wq wq
+cnoreabbrev Wa wa
+cnoreabbrev wQ wq
+cnoreabbrev WQ wq
+cnoreabbrev W w
+cnoreabbrev Q q
+cnoreabbrev Qall qall
+
+" History
+
+set history=200 " Keep 200 lines of command line history
+set undofile " Enable persistent history storage
+set undodir=~/.config/nvim/undo " Store undofiles in a centralized folder
+set backup " Enable backups
+set backupdir=~/.config/nvim/backup " Store backups in a centralized folder
+set writebackup
 
 " Airline
 
@@ -56,6 +86,7 @@ call neomake#configure#automake('nrw', 500)
 " let g:syntastic_python_checkers = ['pylint']
 
 " autocompletion
+
 let g:deoplete#enable_at_startup = 1
 set omnifunc=syntaxcomplete#Complete
 
@@ -111,5 +142,6 @@ autocmd FileType tex setlocal tabstop=4
 autocmd FileType tex setlocal shiftwidth=4
 autocmd FileType tex setlocal expandtab
 autocmd FileType tex VimtexCompile
+autocmd FileType tex IndentLinesDisable
 
 
