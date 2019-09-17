@@ -172,6 +172,8 @@ alias less='lesspipe.sh'
 
 alias vim='nvim'
 alias svim='sudoedit'
+alias v='nvim'
+alias sv='sudoedit'
 
 alias gcal='gcalcli --calendar juliusschumacher@gmail.com'
 alias pdf='zathura'
