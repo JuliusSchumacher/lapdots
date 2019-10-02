@@ -18,4 +18,4 @@ URxvt*scrollWithBuffer: true
 URxvt*scrollTtyKeypress: true
 
 ! extensions
-URxvt.perl-ext-common: default, matcher
+URxvt.perl-ext-common: default, matcher, clipboard

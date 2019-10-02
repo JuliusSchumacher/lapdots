@@ -4,8 +4,6 @@
 # most of the stuff in here is shamelessly stolen from i3-lock-wrapper and betterlockscreen
 # I JUST WANT MY NICE BLURRED SCREENSHOT OK IT DOESN'T NEED TO BE FAST
 
-
-
 # create files for storing images
 file1=$(mktemp --tmpdir i3lock-wrapper-XXXXXXXXXX.png)
 file2=$(mktemp --tmpdir i3lock-wrapper-XXXXXXXXXX.png)
@@ -23,7 +21,7 @@ for RES in $SR; do
 done
 
 #create screenshot, blur and apply rectangle
-scrot -z -d0 "$file1"
+scrot -o -z -d0 $file1
 # convert "$file1" -blur 0x3 "$file2"
 mogrify -scale 10% -scale 1000% "$file1"
 convert "$file1" -draw "fill rgba(0, 0, 0, 0.4) $rectangles" "$file3"

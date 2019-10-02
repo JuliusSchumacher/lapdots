@@ -1,16 +1,19 @@
 " Load plugins
 
 call plug#begin('~/.config/nvim/plugged')
+	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+	Plug 'zchee/deoplete-clang'
 	Plug 'dylanaraps/wal.vim'
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'tpope/vim-sensible'
 	Plug 'artur-shaik/vim-javacomplete2'
 	Plug 'neomake/neomake'
 	Plug 'Yggdroot/indentLine'
-"	Plug 'airblade/vim-gitgutter'
-"	Plug 'alvan/vim-closetag'
+	Plug 'airblade/vim-gitgutter'
+	Plug 'alvan/vim-closetag'
 	Plug 'lervag/vimtex'
 	Plug 'simnalamburt/vim-mundo'
+	Plug 'dusans/vim-hardmode'
 call plug#end()
 
 " theming and sensible settings
@@ -27,6 +30,12 @@ set encoding=utf-8
 set clipboard+=unnamedplus
 set mouse=a
 set scrolloff=3
+set foldmethod=indent
+
+
+" set keybind for folds
+
+map zz zA
 
 " Remember last position in file
 
@@ -78,12 +87,6 @@ let g:airline_symbols.maxlinenr = ''
 " syntax checking
 
 call neomake#configure#automake('nrw', 500)
-
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
-" let g:syntastic_python_checkers = ['pylint']
 
 " autocompletion
 
