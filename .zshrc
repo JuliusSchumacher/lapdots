@@ -185,3 +185,4 @@ alias py='python'
 
 
 alias videos='cd ~/media/videos'
+alias color-picker=com.github.ronnydo.colorpicker

@@ -14,6 +14,9 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'lervag/vimtex'
 	Plug 'simnalamburt/vim-mundo'
 	Plug 'dusans/vim-hardmode'
+	Plug 'deoplete-plugins/deoplete-jedi'
+	Plug 'vim-airline/vim-airline'
+	Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 " theming and sensible settings
@@ -30,12 +33,14 @@ set encoding=utf-8
 set clipboard+=unnamedplus
 set mouse=a
 set scrolloff=3
-set foldmethod=indent
 
 
-" set keybind for folds
+" Folds
 
+set foldmethod=indent " fold based on indent level
 map zz zA
+autocmd BufReadPost,FileReadPost * :normal zR " unfold by default
+
 
 " Remember last position in file
 
