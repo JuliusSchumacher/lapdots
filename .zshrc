@@ -184,5 +184,6 @@ alias haskell='stack runghc'
 alias py='python'
 
 
-alias videos='cd ~/media/videos'
+alias videos='~/media/videos'
 alias color-picker=com.github.ronnydo.colorpicker
+

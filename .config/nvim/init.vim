@@ -17,6 +17,9 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'deoplete-plugins/deoplete-jedi'
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
+	Plug 'rhysd/vim-grammarous'
+	Plug 'sebastianmarkow/deoplete-rust'
+	Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 call plug#end()
 
 " theming and sensible settings
@@ -74,6 +77,7 @@ set writebackup
 
 let g:airline_theme='term'
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 
 if !exists('g:airline_symbols')
 	let g:airline_symbols = {}
@@ -109,8 +113,8 @@ if !exists('g:deoplete#omni#input_patterns')
 endif
 
 " Java
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
-let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
+" autocmd FileType java setlocal omnifunc=javacomplete#Complete
+" let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
 
 autocmd FileType java setlocal tabstop=4
 autocmd FileType java setlocal shiftwidth=4
@@ -152,4 +156,7 @@ autocmd FileType tex setlocal expandtab
 autocmd FileType tex VimtexCompile
 autocmd FileType tex IndentLinesDisable
 
+" Rust
 
+let g:deoplete#sources#rust#racer_binary='/usr/bin/racer'
+let g:deoplete#sources#rust#rust_source_path='/usr/share/rust/src'

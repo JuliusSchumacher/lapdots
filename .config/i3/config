@@ -217,7 +217,7 @@ exec_always "xmodmap ~/.config/xmodmap/conf"
 exec "compton --config ~/.config/compton/compton.conf -b"
 exec "~/.bin/dunst.sh"
 exec "~/.bin/lemonbar.sh"
-exec "mopidy"
+# exec "mopidy"
 
 # mail notifiers don't work!
 #exec "~/.bin/mailnotif ~/.mail/fetchmailrc-chalmers ~/.mail/unread-chalmers"
