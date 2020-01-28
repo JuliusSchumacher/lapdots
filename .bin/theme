@@ -9,6 +9,7 @@ lemonbar.sh &>/dev/null &
 
 # # theme spotify
 # oomoxify-cli ~/.cache/wal/colors-oomox
+spicetify apply
 #
 # # generate css for discord and apply it
 # ~/documents/gits/wal-discord/wal-discord

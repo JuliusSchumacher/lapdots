@@ -1,0 +1,2 @@
+#!/bin/zsh
+DISPLAY=:0 /usr/bin/mpv --alang=jpn --slang=eng --mute=yes --fullscreen $1
