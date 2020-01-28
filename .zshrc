@@ -109,6 +109,7 @@ source ~/.bin/transfer.sh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 [[ -s /etc/grc.zsh ]] && source /etc/grc.zsh
+source /usr/share/doc/pkgfile/command-not-found.zsh
 
 # Keybindings for history-substring-search
 
@@ -136,7 +137,8 @@ bindkey -v
 # End of lines configured by zsh-newuser-install
 
 
-#Custom prompt
+# Custom prompt
+
 ZSH_THEME_GIT_PROMPT_PREFIX="%F{242}("
 ZSH_THEME_GIT_PROMPT_SUFFIX=")%f"
 ZSH_THEME_GIT_PROMPT_DIRTY="±"
@@ -155,11 +157,18 @@ dir_status() {
 PROMPT="%(?.%F{white}.%F{red})>>%f "
 RPROMPT='%n@%M:%F{green}%~%f $(git_status)'
 
+# Environment Variables
+
 export PATH=~/.bin:$PATH
 export EDITOR=nvim
 export TERM=rxvt-unicode-256color
 export TERMCMD=urxvt
 export CLASSPATH="/usr/share/java/*:"
+
+export GOPATH=$HOME/code/go
+export PATH=$PATH:$(go env GOPATH)/bin
+
+# Aliases
 
 # alias ls='ls --color=auto'
 alias ls='exa --group-directories-first'
@@ -176,7 +185,6 @@ alias v='nvim'
 alias sv='sudoedit'
 
 alias gcal='gcalcli --calendar juliusschumacher@gmail.com'
-alias pdf='zathura'
 alias weather='curl wttr.in/gothenburg'
 
 alias ghci='stack ghci'

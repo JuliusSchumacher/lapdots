@@ -19,7 +19,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'vim-airline/vim-airline-themes'
 	Plug 'rhysd/vim-grammarous'
 	Plug 'sebastianmarkow/deoplete-rust'
-	Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
+	"Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 call plug#end()
 
 " theming and sensible settings
@@ -32,6 +32,7 @@ set relativenumber
 set list
 set tabstop=4
 set shiftwidth=4
+set expandtab
 set encoding=utf-8
 set clipboard+=unnamedplus
 set mouse=a
@@ -77,7 +78,7 @@ set writebackup
 
 let g:airline_theme='term'
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#enabled = 1
 
 if !exists('g:airline_symbols')
 	let g:airline_symbols = {}
