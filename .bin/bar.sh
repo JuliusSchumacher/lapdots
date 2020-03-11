@@ -131,7 +131,7 @@ while true; do
 	buf="$buf$(Launcher)"
 	buf="$buf $(Wifi)"
 	buf="$buf $(Volume)"
-	buf="$buf $(Music)"
+#	buf="$buf $(Music)"
 #	buf="$buf $(Mail)"
 	buf="$buf %{c}"
 	buf="$buf $(Workspaces)"
