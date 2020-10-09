@@ -173,3 +173,28 @@ code/
 school/
 matmod/
 tss/
+.Mathematica/
+.config/Nathan Osman/
+.config/Unknown Organization/
+.config/calibre/
+.config/enchant/
+.config/liri-browser/
+.config/slack-term/
+.config/spotify-tui/
+.config/spotifyd/
+.config/systemd/
+.config/vlc/
+.config/zoomus.conf
+.ipynb_checkpoints/
+.ipython/
+.jupyter/
+.keras/
+.moonchild productions/
+.opendrop/
+.password-store/
+.sage/
+.zcompdump-laptop-5.8
+.zoom/
+matmod
+shadowrun
+tss
