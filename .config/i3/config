@@ -166,9 +166,22 @@ bindsym $mod+r mode "resize"
 
 # Custom keybinds
 
+# swap current workspace with workspace
+bindsym $mod+Control+1 exec "~/.bin/workswap 1"
+bindsym $mod+Control+2 exec "~/.bin/workswap 2"
+bindsym $mod+Control+3 exec "~/.bin/workswap 3"
+bindsym $mod+Control+4 exec "~/.bin/workswap 4"
+bindsym $mod+Control+5 exec "~/.bin/workswap 5"
+bindsym $mod+Control+6 exec "~/.bin/workswap 6"
+bindsym $mod+Control+7 exec "~/.bin/workswap 7"
+bindsym $mod+Control+8 exec "~/.bin/workswap 8"
+bindsym $mod+Control+9 exec "~/.bin/workswap 9"
+bindsym $mod+Control+0 exec "~/.bin/workswap 10"
+
 bindsym $mod+shift+w exec ~/.bin/dmenu_nm.sh
 bindsym $mod+m exec ~/.bin/mouse
 bindsym $mod+shift+b exec btmenu
+bindsym $mod+shift+p exec ~/.bin/passmenu.sh
 
 # Scratchpad
 
@@ -183,12 +196,12 @@ font -nerdypepper-scientifica-medium-r-normal--11-80-100-100-c-50-iso10646-1
 # hide_edge_borders both
 for_window [class="^.*"] border pixel 6
 for_window [class="Zathura"] border none
-for_window [class="Zathura"] resize set 707 1000
+# for_window [class="Zathura"] resize set 707 1000
 
 # smart_borders on
 
-gaps inner 15
-gaps outer 9
+gaps inner 17
+gaps outer 6
 
 # for_window [class="^.*"] resize set 600 400
 

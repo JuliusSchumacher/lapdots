@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 ZSH=/usr/share/oh-my-zsh/
@@ -52,7 +52,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colorize colored-man-pages last-working-dir)
+plugins=(git colorize colored-man-pages last-working-dir zsh-vim-mode )
 
 
 # User configuration
@@ -89,9 +89,6 @@ if [[ ! -d $ZSH_CACHE_DIR ]]; then
   mkdir $ZSH_CACHE_DIR
 fi
 
-source $ZSH/oh-my-zsh.sh
-
-
 
 #OWN USER CONFIG BC I KNOW BETTER LOL
 
@@ -102,6 +99,8 @@ zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]}' 'r:|[._-]=* r
 zstyle ':completion:*' max-errors 1
 zstyle :compinstall filename '/home/factor/.zshrc'
 
+# sourcing plugins installed with pacman or written myself
+
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /etc/profile.d/autojump.zsh
 source /usr/share/zsh/plugins/zsh-autopair/autopair.zsh
@@ -110,6 +109,10 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 [[ -s /etc/grc.zsh ]] && source /etc/grc.zsh
 source /usr/share/doc/pkgfile/command-not-found.zsh
+
+# source oh-my-zsh late, fixes some issues with plugins
+source $ZSH/oh-my-zsh.sh
+
 
 # Keybindings for history-substring-search
 
@@ -154,8 +157,19 @@ dir_status() {
   echo -n "%F{green}"
 }
 
-PROMPT="%(?.%F{white}.%F{red})>>%f "
+PROMPT="%(?.%F{white}.%F{red})>>%f  "
 RPROMPT='%n@%M:%F{green}%~%f $(git_status)'
+
+# Cursor styling
+# The cursor matches the behavior of vim
+
+MODE_CURSOR_VIINS="blinking bar"
+MODE_CURSOR_REPLACE="$MODE_CURSOR_VIINS "
+MODE_CURSOR_VICMD="block"
+MODE_CURSOR_SEARCH="steady underline"
+MODE_CURSOR_VISUAL="$MODE_CURSOR_VICMD steady bar"
+MODE_CURSOR_VLINE="$MODE_CURSOR_VISUAL"
+
 
 # Environment Variables
 

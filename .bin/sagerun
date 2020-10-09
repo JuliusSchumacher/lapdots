@@ -1,0 +1,3 @@
+#!/bin/zsh
+
+sage -c "load('$1')"

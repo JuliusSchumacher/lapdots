@@ -23,7 +23,8 @@ done
 #create screenshot, blur and apply rectangle
 scrot -o -z -d0 $file1
 # convert "$file1" -blur 0x3 "$file2"
-mogrify -scale 10% -scale 1000% "$file1"
+mogrify -scale 5% -scale 2000% "$file1"
+
 convert "$file1" -draw "fill rgba(0, 0, 0, 0.4) $rectangles" "$file3"
 rm "$file1" # Remove for security
 # rm "$file2"

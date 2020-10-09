@@ -19,6 +19,11 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'vim-airline/vim-airline-themes'
 	Plug 'rhysd/vim-grammarous'
 	Plug 'sebastianmarkow/deoplete-rust'
+	Plug 'goerz/jupytext.vim'
+	Plug 'autozimu/LanguageClient-neovim', {
+	\ 'branch': 'next',
+	\ 'do': 'bash install.sh',
+	\ }
 	"Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 call plug#end()
 
@@ -37,7 +42,16 @@ set encoding=utf-8
 set clipboard+=unnamedplus
 set mouse=a
 set scrolloff=3
+set hidden
+set signcolumn=yes
+highlight Comment cterm=italic
 
+" Hardmode because I hate myself
+let g:HardMode_level='wannabe'
+autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+
+" remove trailing whitespace on write
+autocmd BufWritePre * %s/\s\+$//e
 
 " Folds
 
@@ -51,7 +65,6 @@ autocmd BufReadPost,FileReadPost * :normal zR " unfold by default
 if has("autocmd")
 	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
-
 " w/q aliases
 
 cnoreabbrev W! w!
@@ -106,12 +119,28 @@ set omnifunc=syntaxcomplete#Complete
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#omni_patterns = {}
 let g:deoplete#auto_completion_start_length = 2
-let g:deoplete#sources = {}
-let g:deoplete#sources._ = []
-let g:deoplete#file#enable_buffer_path = 1
-if !exists('g:deoplete#omni#input_patterns')
-	let g:deoplete#omni#input_patterns = {}
-endif
+" let g:deoplete#sources = {}
+" let g:deoplete#sources._ = []
+" let g:deoplete#file#enable_buffer_path = 1
+"if !exists('g:deoplete#omni#input_patterns')
+"	let g:deoplete#omni#input_patterns = {}
+"endif
+
+" Map expression when a tab is hit:
+"           checks if the completion popup is visible
+"           if yes
+"               then it cycles to next item
+"           else
+"               if expandable_or_jumpable
+"                   then expands_or_jumps
+"                   else returns a normal TAB
+"
+imap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+
+" LanguageClient
+let g:LanguageClient_serverCommands = {
+	\ 'erlang': ['/usr/bin/erlang_ls'],
+	\}
 
 " Java
 " autocmd FileType java setlocal omnifunc=javacomplete#Complete
@@ -150,14 +179,22 @@ autocmd FileType text setlocal spell
 let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_open_on_warning=0
 let g:vimtex_compiler_progname='nvr'
-let g:deoplete#omni#input_patterns.tex=g:vimtex#re#deoplete
+let g:tex_flavor="latex"
+" let g:deoplete#omni#input_patterns.tex=g:vimtex#re#deoplete
 autocmd FileType tex setlocal tabstop=4
 autocmd FileType tex setlocal shiftwidth=4
 autocmd FileType tex setlocal expandtab
 autocmd FileType tex VimtexCompile
 autocmd FileType tex IndentLinesDisable
+autocmd FileType tex setlocal spell
 
 " Rust
 
 let g:deoplete#sources#rust#racer_binary='/usr/bin/racer'
 let g:deoplete#sources#rust#rust_source_path='/usr/share/rust/src'
+
+" Erlang
+autocmd FileType erlang setlocal tabstop=2
+autocmd FileType erlang setlocal shiftwidth=2
+autocmd FileType erlang setlocal expandtab
+

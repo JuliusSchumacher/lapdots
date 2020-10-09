@@ -1,23 +1,28 @@
-
 ! Set font
-! URxvt*font:xft:unifont:pixelsize=13:antialias:false
-URxvt*font:xft:curie:pixelsize=12:antialias:false
-! URxvt.font:xft:scientifica:pixelsize=11:minspace=false
+! URxvt*.font:xft:unifont:pixelsize=13:antialias:false
+! URxvt*.font:xft:curie:pixelsize=12:antialias:false
+! URxvt*.font:xft:cozette:pixelsize=12:antialias:false
+URxvt*.font:xft:scientifica:pixelsize=11
+! URxvt*.font:xft:cherry:pixelsize=13
 
 ! Appearance
-URxvt.scrollBar: false
-URxvt.internalBorder: 32
-URxvt.letterSpace: 1
-URxvt.saveLines: 20000
+URxvt*.scrollBar: false
+URxvt*.internalBorder: 44
+URxvt*.letterSpace: 2
+URxvt*.lineSpace: 0
+URxvt*.cursorBlink: true
+
+! Amount of lines to be able to scroll
+URxvt*.saveLines: 20000
 
 ! do not scroll with output
-URxvt*scrollTtyOutput: false
+URxvt*.scrollTtyOutput: false
 
 ! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
-URxvt*scrollWithBuffer: true
+URxvt*.scrollWithBuffer: true
 
 ! scroll back to the bottom on keypress
-URxvt*scrollTtyKeypress: true
+URxvt*.scrollTtyKeypress: true
 
 ! extensions
-URxvt.perl-ext-common: default, matcher, clipboard
+URxvt*.perl-ext-common: default, matcher, clipboard, resize-font

@@ -13,8 +13,8 @@ f_green="%{F$color4}"
 f_red="%{F$color2}"
 
 Clock() {
-	DATETIME=$(date "+%T %a %b %d")
-	TIME=$(date "+%T")
+	#DATETIME=$(date "+%T %a %b %d")
+	TIME=$(date "+%H:%M")
 	echo "$f_green\ue015$fg $TIME"
 }
 
@@ -65,11 +65,6 @@ Music() {
 			icon="%{A:playerctl play:}\ue09a%{A}"
 		fi
 		echo "$f_green\ue05c$fg %{A:playerctl previous:}\ue096%{A}$icon%{A:playerctl next:}\ue05a%{A} $(playerctl metadata artist) - $(playerctl metadata title)"
-	fi
-
-	if [ "`ncmpcpp --current | grep '('`" ]
-	then
-		echo "$f_green\ue05c$fg $(ncmpcpp --current %a) - $(ncmpcpp --current %t)"
 	fi
 }
 
@@ -131,17 +126,17 @@ while true; do
 	buf="$buf$(Launcher)"
 	buf="$buf $(Wifi)"
 	buf="$buf $(Volume)"
-#	buf="$buf $(Music)"
+	buf="$buf $(Music)"
 #	buf="$buf $(Mail)"
 	buf="$buf %{c}"
 	buf="$buf $(Workspaces)"
 	buf="$buf %{r}"
-	buf="$buf $(Processor)"
-	buf="$buf $(Memory)"
+#	buf="$buf $(Processor)"
+#	buf="$buf $(Memory)"
 	buf="$buf $(Battery)"
 	buf="$buf $(Date)"
 	buf="$buf $(Clock)"
 	buf="$buf $(Power)"
 	echo -e $buf
-	sleep 0.8
+	sleep 2
 done
