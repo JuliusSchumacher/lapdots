@@ -92,6 +92,9 @@ fi
 
 #OWN USER CONFIG BC I KNOW BETTER LOL
 
+# Colors
+(cat ~/.cache/wal/sequences &)
+
 # The following lines were added by compinstall
 
 zstyle ':completion:*' completer _complete _ignored _approximate
@@ -138,6 +141,7 @@ setopt appendhistory autocd extendedglob nomatch
 unsetopt beep notify
 bindkey -v
 # End of lines configured by zsh-newuser-install
+
 
 
 # Custom prompt
@@ -208,4 +212,4 @@ alias py='python'
 
 alias videos='~/media/videos'
 alias color-picker=com.github.ronnydo.colorpicker
-
+export XDG_CONFIG_HOME="$HOME/.config"

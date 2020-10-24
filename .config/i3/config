@@ -30,7 +30,8 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+# bindsym $mod+Return exec urxvtc
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -190,18 +191,22 @@ bindsym $mod+minus scratchpad show
 
 # Theme
 
-#font -misc-tamzen-medium-r-normal--14-101-100-100-c-70-iso8859-1
-font -nerdypepper-scientifica-medium-r-normal--11-80-100-100-c-50-iso10646-1
+# font -nerdypepper-scientifica-medium-r-normal--11-80-100-100-c-50-iso10646-1
+
+# Fancy fonts
+font pango:lemon 11
+for_window [class=".*"] title_format "<span font='scientifica 8'><i>%title</i></span>"
 
 # hide_edge_borders both
-for_window [class="^.*"] border pixel 6
+for_window [class="^.*"] border pixel 4
 for_window [class="Zathura"] border none
+for_window [class="firefox"] border none
 # for_window [class="Zathura"] resize set 707 1000
 
 # smart_borders on
 
-gaps inner 17
-gaps outer 6
+gaps inner 27
+gaps outer 11
 
 # for_window [class="^.*"] resize set 600 400
 
@@ -220,6 +225,7 @@ client.background       $bg
 #Startup
 
 exec_always "setxkbmap se"
+#exec urxvtd
 # exec_always "feh --force-aliasing --bg-fill ~/.wallpaper"
 exec_always wal -R
 exec_always "xrdb ~/.Xresources"
@@ -227,9 +233,10 @@ exec_always "xrdb ~/.Xresources"
 exec "unclutter --jitter 10px --ignore-scrolling --timeout 2"
 exec "xbindkeys"
 exec_always "xmodmap ~/.config/xmodmap/conf"
-exec "compton --config ~/.config/compton/compton.conf -b"
+exec_always "picom"
 exec "~/.bin/dunst.sh"
 exec "~/.bin/lemonbar.sh"
+
 # exec "mopidy"
 
 # mail notifiers don't work!

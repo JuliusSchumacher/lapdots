@@ -1,30 +1,31 @@
 " Load plugins
 
 call plug#begin('~/.config/nvim/plugged')
-	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-	Plug 'zchee/deoplete-clang'
-	Plug 'dylanaraps/wal.vim'
-	Plug 'jiangmiao/auto-pairs'
-	Plug 'tpope/vim-sensible'
-	Plug 'artur-shaik/vim-javacomplete2'
-	Plug 'neomake/neomake'
-	Plug 'Yggdroot/indentLine'
-	Plug 'airblade/vim-gitgutter'
-	Plug 'alvan/vim-closetag'
-	Plug 'lervag/vimtex'
-	Plug 'simnalamburt/vim-mundo'
-	Plug 'dusans/vim-hardmode'
-	Plug 'deoplete-plugins/deoplete-jedi'
-	Plug 'vim-airline/vim-airline'
-	Plug 'vim-airline/vim-airline-themes'
-	Plug 'rhysd/vim-grammarous'
-	Plug 'sebastianmarkow/deoplete-rust'
-	Plug 'goerz/jupytext.vim'
-	Plug 'autozimu/LanguageClient-neovim', {
-	\ 'branch': 'next',
-	\ 'do': 'bash install.sh',
-	\ }
-	"Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'zchee/deoplete-clang'
+    Plug 'dylanaraps/wal.vim'
+    Plug 'jiangmiao/auto-pairs'
+    Plug 'tpope/vim-sensible'
+    Plug 'artur-shaik/vim-javacomplete2'
+    Plug 'neomake/neomake'
+    Plug 'Yggdroot/indentLine'
+    Plug 'airblade/vim-gitgutter'
+    Plug 'alvan/vim-closetag'
+    Plug 'lervag/vimtex'
+    Plug 'simnalamburt/vim-mundo'
+    Plug 'dusans/vim-hardmode'
+    Plug 'deoplete-plugins/deoplete-jedi'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+    Plug 'rhysd/vim-grammarous'
+    Plug 'sebastianmarkow/deoplete-rust'
+    Plug 'goerz/jupytext.vim'
+    Plug 'ap/vim-css-color'
+    Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+    "Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 call plug#end()
 
 " theming and sensible settings
@@ -63,7 +64,7 @@ autocmd BufReadPost,FileReadPost * :normal zR " unfold by default
 " Remember last position in file
 
 if has("autocmd")
-	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 " w/q aliases
 
@@ -94,7 +95,7 @@ let g:airline_powerline_fonts = 1
 " let g:airline#extensions#tabline#enabled = 1
 
 if !exists('g:airline_symbols')
-	let g:airline_symbols = {}
+    let g:airline_symbols = {}
 endif
 
 " powerline symbols
@@ -123,7 +124,7 @@ let g:deoplete#auto_completion_start_length = 2
 " let g:deoplete#sources._ = []
 " let g:deoplete#file#enable_buffer_path = 1
 "if !exists('g:deoplete#omni#input_patterns')
-"	let g:deoplete#omni#input_patterns = {}
+"    let g:deoplete#omni#input_patterns = {}
 "endif
 
 " Map expression when a tab is hit:
@@ -139,8 +140,8 @@ imap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " LanguageClient
 let g:LanguageClient_serverCommands = {
-	\ 'erlang': ['/usr/bin/erlang_ls'],
-	\}
+    \ 'erlang': ['/usr/bin/erlang_ls'],
+    \}
 
 " Java
 " autocmd FileType java setlocal omnifunc=javacomplete#Complete
