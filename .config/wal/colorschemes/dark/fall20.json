@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/factor/media/photos/walls/autumn_flowers.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#08090D",
+        "foreground": "#f0e3c8",
+        "cursor": "#f0e3c8"
+    },
+    "colors": {
+        "color0": "#08090D",
+        "color1": "#9F5F5B",
+        "color2": "#BE5D43",
+        "color3": "#6D8A78",
+        "color4": "#EE9F5F",
+        "color5": "#E6A944",
+        "color6": "#C4A69F",
+        "color7": "#f0e3c8",
+        "color8": "#a89e8c",
+        "color9": "#9F5F5B",
+        "color10": "#BE5D43",
+        "color11": "#6D8A78",
+        "color12": "#EE9F5F",
+        "color13": "#E6A944",
+        "color14": "#C4A69F",
+        "color15": "#f0e3c8"
+    }
+}
