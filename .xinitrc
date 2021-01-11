@@ -8,3 +8,4 @@ i3
 # awesome
 # howm
 # budgie-desktop
+# sowm

@@ -2,7 +2,7 @@
 ! URxvt*.font:xft:unifont:pixelsize=13:antialias:false
 ! URxvt*.font:xft:curie:pixelsize=12:antialias:false
 ! URxvt*.font:xft:cozette:pixelsize=12:antialias:false
-URxvt*.font:xft:scientifica:pixelsize=11
+URxvt*.font:xft:scientifica:pixelsize=12, xft:tewi:pixelsize=11
 ! URxvt*.font:xft:cherry:pixelsize=13
 
 ! Appearance

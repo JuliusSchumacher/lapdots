@@ -6,7 +6,6 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'dylanaraps/wal.vim'
     Plug 'jiangmiao/auto-pairs'
     Plug 'tpope/vim-sensible'
-    Plug 'artur-shaik/vim-javacomplete2'
     Plug 'neomake/neomake'
     Plug 'Yggdroot/indentLine'
     Plug 'airblade/vim-gitgutter'
@@ -24,8 +23,8 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
-    \ }
-    "Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
+    \ },
+    Plug 'hsanson/vim-android',
 call plug#end()
 
 " theming and sensible settings
@@ -58,7 +57,7 @@ autocmd BufWritePre * %s/\s\+$//e
 
 set foldmethod=indent " fold based on indent level
 map zz zA
-autocmd BufReadPost,FileReadPost * :normal zR " unfold by default
+autocmd BufReadPost,FileReadPost,BufEnter * :normal zR " unfold by default
 
 
 " Remember last position in file
@@ -108,55 +107,42 @@ let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = '☰'
 let g:airline_symbols.maxlinenr = ''
 
-" syntax checking
 
-call neomake#configure#automake('nrw', 500)
+" Neomake
+
+ call neomake#configure#automake('nrw', 500)
 
 " autocompletion
 
 let g:deoplete#enable_at_startup = 1
-set omnifunc=syntaxcomplete#Complete
-
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#omni_patterns = {}
 let g:deoplete#auto_completion_start_length = 2
-" let g:deoplete#sources = {}
-" let g:deoplete#sources._ = []
-" let g:deoplete#file#enable_buffer_path = 1
-"if !exists('g:deoplete#omni#input_patterns')
-"    let g:deoplete#omni#input_patterns = {}
-"endif
 
-" Map expression when a tab is hit:
-"           checks if the completion popup is visible
-"           if yes
-"               then it cycles to next item
-"           else
-"               if expandable_or_jumpable
-"                   then expands_or_jumps
-"                   else returns a normal TAB
-"
+" make tab do the reasonable thing I guess
 imap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " LanguageClient
 let g:LanguageClient_serverCommands = {
     \ 'erlang': ['/usr/bin/erlang_ls'],
+    \ 'java': ['jdtls'],
+    \ 'python': ['pyls'],
     \}
+let g:LanguageClient_autoStart=1
 
 " Java
-" autocmd FileType java setlocal omnifunc=javacomplete#Complete
-" let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
 
 autocmd FileType java setlocal tabstop=4
 autocmd FileType java setlocal shiftwidth=4
 autocmd FileType java setlocal expandtab
+autocmd BufEnter,BufRead,BufNewFile *.java NeomakeDisableBuffer
 
 
 " Assembly
+
 autocmd FileType asm setlocal tabstop=8
 autocmd FileType asm setlocal shiftwidth=8
 
 " C
+
 autocmd FileType c setlocal tabstop=4
 autocmd FileType c setlocal shiftwidth=4
 autocmd FileType c setlocal expandtab
@@ -181,9 +167,8 @@ let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_open_on_warning=0
 let g:vimtex_compiler_progname='nvr'
 let g:tex_flavor="latex"
-" let g:deoplete#omni#input_patterns.tex=g:vimtex#re#deoplete
-autocmd FileType tex setlocal tabstop=4
-autocmd FileType tex setlocal shiftwidth=4
+autocmd FileType tex setlocal tabstop=2
+autocmd FileType tex setlocal shiftwidth=2
 autocmd FileType tex setlocal expandtab
 autocmd FileType tex VimtexCompile
 autocmd FileType tex IndentLinesDisable
@@ -195,7 +180,14 @@ let g:deoplete#sources#rust#racer_binary='/usr/bin/racer'
 let g:deoplete#sources#rust#rust_source_path='/usr/share/rust/src'
 
 " Erlang
+
 autocmd FileType erlang setlocal tabstop=2
 autocmd FileType erlang setlocal shiftwidth=2
 autocmd FileType erlang setlocal expandtab
+
+" yaml
+
+autocmd FileType yaml setlocal tabstop=2
+autocmd FileType yaml setlocal shiftwidth=2
+autocmd FileType yaml setlocal expandtab
 

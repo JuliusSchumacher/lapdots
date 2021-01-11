@@ -189,9 +189,9 @@ export PATH=$PATH:$(go env GOPATH)/bin
 # Aliases
 
 # alias ls='ls --color=auto'
-alias ls='exa --group-directories-first'
-alias ll='exa --group-directories-first -l'
-alias la='exa --group-directories-first -la'
+alias ls='exa --group-directories-first '
+alias ll='exa --group-directories-first -l --git'
+alias la='exa --group-directories-first -la --git'
 alias lt='exa -T'
 
 alias pika='pikaur'
