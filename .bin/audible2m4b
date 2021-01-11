@@ -1,0 +1,9 @@
+#!/bin/bash
+NEWNAME=$(echo $1 | sed "s/aax/m4b/")
+BYTES=17040309
+ffmpeg \
+    -activation_bytes $BYTES \
+    -i $1 \
+    -c copy \
+    $NEWNAME
+echo "$NEWNAME created"
