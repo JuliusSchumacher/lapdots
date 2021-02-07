@@ -1,4 +1,8 @@
-" Load plugins
+" Note: Make sure the function is defined before `vim-buffet` is loaded.
+function! g:BuffetSetCustomColors()
+    hi! BuffetCurrentBuffer cterm=NONE ctermbg=0 ctermfg=7
+    hi! BuffetBuffer cterm=NONE ctermbg=2 ctermfg=7
+endfunction" Load plugins
 
 call plug#begin('~/.config/nvim/plugged')
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -21,17 +25,18 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'goerz/jupytext.vim'
     Plug 'ap/vim-css-color'
     Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ },
-    Plug 'hsanson/vim-android',
+        \ 'branch': 'next',
+        \ 'do': 'bash install.sh',
+        \ },
+    Plug 'bagrat/vim-buffet',
+    Plug 'neovimhaskell/haskell-vim'
 call plug#end()
 
 " theming and sensible settings
 
 syntax on
 colorscheme wal
-filetype plugin indent on
+"filetype plugin indent on
 set number
 set relativenumber
 set list
@@ -45,6 +50,8 @@ set scrolloff=3
 set hidden
 set signcolumn=yes
 highlight Comment cterm=italic
+
+let mapleader=","
 
 " Hardmode because I hate myself
 let g:HardMode_level='wannabe'
@@ -92,6 +99,8 @@ set writebackup
 let g:airline_theme='term'
 let g:airline_powerline_fonts = 1
 " let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#left_sep = ' '
+" let g:airline#extensions#tabline#left_alt_sep = '|'
 
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
@@ -120,13 +129,43 @@ let g:deoplete#auto_completion_start_length = 2
 " make tab do the reasonable thing I guess
 imap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
+" close preview after autocompletion
+autocmd CompleteDone * pclose!
+
 " LanguageClient
 let g:LanguageClient_serverCommands = {
     \ 'erlang': ['/usr/bin/erlang_ls'],
     \ 'java': ['jdtls'],
     \ 'python': ['pyls'],
+    \ 'rust': ['rls'],
+    \ 'haskell': ['haskell-language-server-wrapper', '--lsp'],
     \}
 let g:LanguageClient_autoStart=1
+"let g:LanguageClient_hoverPreview = "Auto"
+let g:LanguageClient_useFloatingHover = 0
+let g:LanguageClient_diagnosticsMaxSeverity = "Warning"
+let g:LanguageClient_useVirtualText = "No"
+let g:LanguageClient_showCompletionDocs = 0
+let g:LanguageClient_preferredMarkupKind = ['plaintext']
+
+nmap <F5> <Plug>(lcn-menu)
+nmap <leader>K <Plug>(lcn-hover)
+nmap <silent> gd <Plug>(lcn-definition)
+nmap <silent> <F2> <Plug>(lcn-rename)
+
+" buffet
+
+nmap <leader>1 <Plug>BuffetSwitch(1)
+nmap <leader>2 <Plug>BuffetSwitch(2)
+nmap <leader>3 <Plug>BuffetSwitch(3)
+nmap <leader>4 <Plug>BuffetSwitch(4)
+nmap <leader>5 <Plug>BuffetSwitch(5)
+nmap <leader>6 <Plug>BuffetSwitch(6)
+nmap <leader>7 <Plug>BuffetSwitch(7)
+nmap <leader>8 <Plug>BuffetSwitch(8)
+nmap <leader>9 <Plug>BuffetSwitch(9)
+nmap <leader>0 <Plug>BuffetSwitch(10)
+let g:buffet_always_show_tabline = 0
 
 " Java
 
@@ -176,8 +215,8 @@ autocmd FileType tex setlocal spell
 
 " Rust
 
-let g:deoplete#sources#rust#racer_binary='/usr/bin/racer'
-let g:deoplete#sources#rust#rust_source_path='/usr/share/rust/src'
+" let g:deoplete#sources#rust#racer_binary='/usr/bin/racer'
+" let g:deoplete#sources#rust#rust_source_path='/usr/share/rust/src'
 
 " Erlang
 
@@ -191,3 +230,22 @@ autocmd FileType yaml setlocal tabstop=2
 autocmd FileType yaml setlocal shiftwidth=2
 autocmd FileType yaml setlocal expandtab
 
+" Haskell
+
+autocmd FileType haskell setlocal tabstop=2
+autocmd FileType haskell setlocal shiftwidth=2
+autocmd FileType haskell setlocal expandtab
+autocmd FileType haskell IndentLinesDisable
+
+let g:haskell_classic_highlighting = 1
+let g:haskell_indent_if = 3
+let g:haskell_indent_case = 2
+let g:haskell_indent_let = 4
+let g:haskell_indent_where = 6
+let g:haskell_indent_before_where = 2
+let g:haskell_indent_after_bare_where = 2
+let g:haskell_indent_do = 3
+let g:haskell_indent_in = 1
+let g:haskell_indent_guard = 2
+let g:haskell_indent_case_alternative = 1
+let g:cabal_indent_section = 2

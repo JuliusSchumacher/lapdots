@@ -1,2 +1,0 @@
-#! /bin/zsh
-sudo gdfs -o allow_other .gdrive ~/documents/gdrive

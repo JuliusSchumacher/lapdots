@@ -30,8 +30,8 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvtc
-# bindsym $mod+Return exec alacritty
+# bindsym $mod+Return exec urxvtc
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -225,7 +225,7 @@ client.background       $bg
 #Startup
 
 exec_always "setxkbmap se"
-exec urxvtd
+# exec urxvtd
 # exec_always "feh --force-aliasing --bg-fill ~/.wallpaper"
 exec_always wal -R
 exec_always "xrdb ~/.Xresources"
