@@ -31,13 +31,13 @@ floating_modifier $mod
 
 # start a terminal
 # bindsym $mod+Return exec urxvtc
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec ~/.bin/dmenu.sh
+bindsym $mod+d exec rofi -show drun
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -179,10 +179,10 @@ bindsym $mod+Control+8 exec "~/.bin/workswap 8"
 bindsym $mod+Control+9 exec "~/.bin/workswap 9"
 bindsym $mod+Control+0 exec "~/.bin/workswap 10"
 
-bindsym $mod+shift+w exec ~/.bin/dmenu_nm.sh
-bindsym $mod+m exec ~/.bin/mouse
-bindsym $mod+shift+b exec btmenu
-bindsym $mod+shift+p exec ~/.bin/passmenu.sh
+# bindsym $mod+shift+w exec ~/.bin/dmenu_nm.sh
+# bindsym $mod+m exec ~/.bin/mouse
+# bindsym $mod+shift+b exec btmenu
+# bindsym $mod+shift+p exec ~/.bin/passmenu.sh
 
 # Scratchpad
 
@@ -191,22 +191,22 @@ bindsym $mod+minus scratchpad show
 
 # Theme
 
-# font -nerdypepper-scientifica-medium-r-normal--11-80-100-100-c-50-iso10646-1
-
 # Fancy fonts
-font pango:lemon 11
-for_window [class=".*"] title_format "<span font='scientifica 8'><i>%title</i></span>"
+font pango:lemon 14
+for_window [class=".*"] title_format "<span font='Anomymous Pro 11'><i>%title</i></span>"
 
 # hide_edge_borders both
-for_window [class="^.*"] border pixel 4
+for_window [class="^.*"] border pixel 7
 for_window [class="Zathura"] border none
 for_window [class="firefox"] border none
 #for_window [class="Zathura"] resize set 500 1000
 
 # smart_borders on
 
-gaps inner 27
-gaps outer 11
+workspace 1 output DP-4
+
+gaps outer 50
+gaps inner 40
 
 # for_window [class="^.*"] resize set 600 400
 
@@ -235,7 +235,8 @@ exec "xbindkeys"
 exec_always "xmodmap ~/.config/xmodmap/conf"
 exec_always "picom"
 exec "~/.bin/dunst.sh"
-exec "~/.bin/lemonbar.sh"
+exec "polybar base"
+exec "polybar mon2"
 
 # exec "mopidy"
 
