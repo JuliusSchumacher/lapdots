@@ -46,7 +46,7 @@
     background = #000f0f0f
     foreground = ${xrdb:color7}
 
-    border-bottom-size  = 8
+    border-bottom-size  = 20
     border-top-size     = 0
 
     border-left-size  = 0
@@ -66,11 +66,11 @@
     font-N = <fontconfig pattern>;<vertical offset>
     font-0 = Hack:size=8;3
 
-    modules-left    = date music
+    modules-left    = date volume music
     modules-center  =
     modules-right   = workspaces
 
-    fixed-center = false
+    fixed-center = true
     override-redirect = true
     wm-restack = i3
 
@@ -88,7 +88,7 @@
     background = #000f0f0f
     foreground = ${xrdb:color7}
 
-    border-bottom-size  = 8
+    border-bottom-size  = 20
     border-top-size     = 0
 
     border-left-size  = 0
@@ -108,7 +108,7 @@
     font-N = <fontconfig pattern>;<vertical offset>
     font-0 = Hack:size=8;3
 
-    modules-right   = workspaces
+    modules-right   = workspaces date
 
     fixed-center = false
     override-redirect = true
@@ -144,42 +144,7 @@
 
     label-background = ${xrdb:color4}
     label-foreground = ${xrdb:color0}
-    label-padding    = 2
-
-[module/previous]
-    type = custom/text
-
-    content = " "
-    content-background = ${xrdb:color2}
-    content-foreground = ${xrdb:color0}
-    content-padding = 1
-
-    click-left = mpc prev
-
-[module/playpause]
-    type = custom/script
-
-    exec = sh ~/.config/polybar/playpause.sh
-
-    interval= 1
-
-    label = %output%
-    label-background = ${xrdb:color2}
-    label-foreground = ${xrdb:color0}
-    label-padding = 1
-
-    click-left = mpc toggle
-
-[module/next]
-    type = custom/text
-
-    content = " "
-
-    content-background = ${xrdb:color2}
-    content-foreground = ${xrdb:color0}
-    content-padding = 1
-
-    click-left = mpc next
+    label-padding    = 1
 
 [module/music]
     type = custom/script
@@ -235,27 +200,10 @@
     label-full-padding    = 1
 
 [module/volume]
-    type          = internal/volume
-    format-volume = <label-volume>
+    type                    = internal/alsa
+    master-soundcard        = default
 
-    mapped = true
-
-    label-volume            = " %percentage%"
-    label-volume-background = ${xrdb:color0}
-    label-volume-foreground = ${xrdb:color3}
     label-volume-padding    = 1
-
-    format-muted = <label-muted>
-
-    label-muted            = " 0"
-    label-muted-background = ${xrdb:color0}
-    label-muted-foreground = ${xrdb:color3}
-    label-muted-padding    = 3
-
-    format-volume-padding = 0
-    format-muted-padding  = 0
-
-    ramp-headphones-0 = 
 
 [module/cpu]
     type             = internal/cpu

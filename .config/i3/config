@@ -198,7 +198,7 @@ for_window [class=".*"] title_format "<span font='Anomymous Pro 11'><i>%title</i
 # hide_edge_borders both
 for_window [class="^.*"] border pixel 7
 for_window [class="Zathura"] border none
-for_window [class="firefox"] border none
+#for_window [class="firefox"] border none
 #for_window [class="Zathura"] resize set 500 1000
 
 # smart_borders on
@@ -229,14 +229,13 @@ exec_always "setxkbmap se"
 # exec_always "feh --force-aliasing --bg-fill ~/.wallpaper"
 exec_always wal -R
 exec_always "xrdb ~/.Xresources"
+exec_always /home/julius/.config/polybar/launch.sh
 
 exec "unclutter --jitter 10px --ignore-scrolling --timeout 2"
 exec "xbindkeys"
 exec_always "xmodmap ~/.config/xmodmap/conf"
 exec_always "picom"
 exec "~/.bin/dunst.sh"
-exec "polybar base"
-exec "polybar mon2"
 
 # exec "mopidy"
 

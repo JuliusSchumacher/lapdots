@@ -5,11 +5,11 @@
 . "${HOME}/.cache/wal/colors.sh"
 
 case "$(echo -e "Shutdown\nRestart\nLogout\nLock" | dmenu \
-	-x 1870 \
+	-x 3280 \
 	-y 17 \
-	-h 17 \
-	-w 50 \
-	-fn "-nerdypepper-scientifica-medium-r-normal--11-80-100-100-c-50-iso10646-1" \
+	-h 20 \
+	-w 70 \
+	-fn "Hack 14" \
 	-sb $color2 \
 	-nb $color0 \
 	-l 4 -i \

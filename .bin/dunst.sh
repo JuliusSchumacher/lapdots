@@ -1,6 +1,6 @@
 #! /bin/zsh
 
-. "/home/factor/.cache/wal/colors.sh"
+. "$HOME/.cache/wal/colors.sh"
 
 bg="$color0"
 fg="$color7"
