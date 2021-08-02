@@ -1,4 +1,4 @@
-" Note: Make sure the function is defined before `vim-buffet` is loaded.
+"▾ Note: Make sure the function is defined before `vim-buffet` is loaded.
 function! g:BuffetSetCustomColors()
     hi! BuffetCurrentBuffer cterm=NONE ctermbg=0 ctermfg=7
     hi! BuffetBuffer cterm=NONE ctermbg=2 ctermfg=7
@@ -24,15 +24,24 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'sebastianmarkow/deoplete-rust'
     Plug 'goerz/jupytext.vim'
     Plug 'ap/vim-css-color'
+    Plug 'Omnisharp/Omnisharp-vim'
+    Plug 'nickspoons/vim-sharpenup'
+    Plug 'preservim/nerdtree'
+    Plug 'Xuyuanp/nerdtree-git-plugin'
+    Plug 'ryanoasis/vim-devicons'
+    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+    Plug 'puremourning/vimspector'
+    Plug 'dense-analysis/ale'
     Plug 'autozimu/LanguageClient-neovim', {
         \ 'branch': 'next',
         \ 'do': 'bash install.sh',
         \ },
-    Plug 'bagrat/vim-buffet',
+    Plug 'bagrat/vim-buffet'
     Plug 'neovimhaskell/haskell-vim'
 call plug#end()
 
 " theming and sensible settings
+
 
 syntax on
 colorscheme wal
@@ -51,11 +60,17 @@ set hidden
 set signcolumn=yes
 highlight Comment cterm=italic
 
-let mapleader=","
-
 " Hardmode because I hate myself
 let g:HardMode_level='wannabe'
 autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+
+" Start NERDTree. If a file is specified, move the cursor to its window.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
+" Exit Vim if NERDTree is the only window remaining in the only tab.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <leader>n :NERDTreeFocus<CR>
 
 " remove trailing whitespace on write
 autocmd BufWritePre * %s/\s\+$//e
@@ -119,7 +134,7 @@ let g:airline_symbols.maxlinenr = ''
 
 " Neomake
 
- call neomake#configure#automake('nrw', 500)
+ "call neomake#configure#automake('nrw', 500)
 
 " autocompletion
 
@@ -139,6 +154,7 @@ let g:LanguageClient_serverCommands = {
     \ 'python': ['pyls'],
     \ 'rust': ['rls'],
     \ 'haskell': ['haskell-language-server-wrapper', '--lsp'],
+    \ 'html': ['vscode-html-languageserver'],
     \}
 let g:LanguageClient_autoStart=1
 "let g:LanguageClient_hoverPreview = "Auto"
@@ -150,7 +166,7 @@ let g:LanguageClient_preferredMarkupKind = ['plaintext']
 
 nmap <F5> <Plug>(lcn-menu)
 nmap <leader>K <Plug>(lcn-hover)
-nmap <silent> gd <Plug>(lcn-definition)
+" nmap <silent> gd <Plug>(lcn-definition)
 nmap <silent> <F2> <Plug>(lcn-rename)
 
 " buffet
@@ -166,6 +182,8 @@ nmap <leader>8 <Plug>BuffetSwitch(8)
 nmap <leader>9 <Plug>BuffetSwitch(9)
 nmap <leader>0 <Plug>BuffetSwitch(10)
 let g:buffet_always_show_tabline = 0
+noremap <Tab> :bn<CR>
+noremap <S-Tab> :bp<CR>
 
 " Java
 
@@ -249,3 +267,29 @@ let g:haskell_indent_in = 1
 let g:haskell_indent_guard = 2
 let g:haskell_indent_case_alternative = 1
 let g:cabal_indent_section = 2
+
+" HTML
+autocmd FileType html setlocal tabstop=2
+autocmd FileType html setlocal shiftwidth=2
+
+autocmd FileType htmldjango setlocal tabstop=2
+autocmd FileType htmldjango setlocal shiftwidth=2
+
+" CSS
+autocmd FileType css setlocal tabstop=2
+autocmd FileType css setlocal shiftwidth=2
+
+autocmd FileType scss setlocal tabstop=2
+autocmd FileType scss setlocal shiftwidth=2
+
+" C#
+autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
+let g:sharpenup_map_prefix = ','
+
+let g:OmniSharp_popup_position = 'peek'
+let g:OmniSharp_popup_options = {
+\ 'winhl': 'Normal:Normal',
+\}
+
+let g:ale_virtualtext_cursor = 1
+
