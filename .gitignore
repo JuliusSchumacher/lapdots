@@ -145,7 +145,6 @@ mopidy-spotify-fix/
 .config/Slack/
 .config/TabNine/
 .config/Trolltech.conf
-.config/alacritty/
 .config/git/
 .config/go/
 .config/kritadisplayrc
