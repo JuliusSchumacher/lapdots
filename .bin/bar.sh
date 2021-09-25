@@ -125,10 +125,10 @@ Power() {
 while true; do
     buf="$bg"
     buf="$buf%{l}"
-    buf="$buf$(Launcher)"
-    buf="$buf $(Wifi)"
-    buf="$buf $(Volume)"
-    buf="$buf $(Music)"
+    # buf="$buf$(Launcher)"
+    # buf="$buf $(Wifi)"
+    # buf="$buf $(Volume)"
+    # buf="$buf $(Music)"
 #    buf="$buf $(Mail)"
     buf="$buf %{c}"
     buf="$buf $(Workspaces)"
@@ -138,7 +138,7 @@ while true; do
     buf="$buf $(Battery)"
     buf="$buf $(Date)"
     buf="$buf $(Clock)"
-    buf="$buf $(Power)"
+    # buf="$buf $(Power)"
     echo -e $buf
     sleep 2
 done
