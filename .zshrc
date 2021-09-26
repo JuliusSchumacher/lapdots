@@ -52,7 +52,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colorize colored-man-pages last-working-dir zsh-vim-mode )
+plugins=(git colorize colored-man-pages last-working-dir vi-mode )
 
 
 # User configuration
@@ -178,13 +178,14 @@ MODE_CURSOR_VLINE="$MODE_CURSOR_VISUAL"
 # Environment Variables
 
 export PATH=~/.bin:$PATH
+export PATH=~/.cargo/bin:$PATH
 export EDITOR=nvim
 export TERM=rxvt-unicode-256color
 export TERMCMD=urxvt
 export CLASSPATH="/usr/share/java/*:"
 
-export GOPATH=$HOME/code/go
-export PATH=$PATH:$(go env GOPATH)/bin
+# export GOPATH=$HOME/code/go
+# export PATH=$PATH:$(go env GOPATH)/bin
 
 # Aliases
 
@@ -213,3 +214,11 @@ alias py='python'
 alias videos='~/media/videos'
 alias color-picker=com.github.ronnydo.colorpicker
 export XDG_CONFIG_HOME="$HOME/.config"
+
+# environment vars for wsl2
+export HOST_IP="$(ip route | awk '/^default/{print $3}')"
+
+export PULSE_SERVER="tcp:$HOST_IP"
+
+#export DISPLAY="$HOST_IP:0"
+export DISPLAY=":0"

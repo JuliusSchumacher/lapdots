@@ -217,3 +217,13 @@ docs/
 down/
 drive/
 "h\303\245llut"
+.cabal/
+.config/Microsoft/
+.config/byobu/
+.config/kitty/
+.config/nvim.nvchad/
+.config/teams/
+.config/termite/
+.templateengine/
+desk/
+temp/

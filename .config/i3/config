@@ -225,7 +225,7 @@ client.background       $bg
 
 #Startup
 
-exec_always "setxkbmap se"
+exec_always "setxkbmap us de_se_fi"
 # exec urxvtd
 # exec_always "feh --force-aliasing --bg-fill ~/.wallpaper"
 exec_always wal -R
